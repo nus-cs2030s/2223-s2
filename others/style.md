@@ -25,7 +25,7 @@ Many major companies enforce coding styles, and some have published them.  For C
 	```
 	So that when you press <tab> it is expanded to whitespace.
 	
-	**Note:** For CS2030S, this option is already included in the `~/.vimrc` file if you follow the [Vim setup guide](vim/setup.md). In fact, we recommend you follow the [Vim setup guide](vim/setup.md) instead and don't manually manage your own version of your `~/.vimrc` file.
+	**Note:** For CS2030S, this option is already included in the `~/.vimrc` file if you follow the [Vim setup guide](vim-setup.md). In fact, we recommend you follow the [Vim setup guide](vim-setup.md) instead and don't manually manage your own version of your `~/.vimrc` file.
 
 	Most other source code editors have similar configuration.  
 
@@ -88,7 +88,7 @@ Many major companies enforce coding styles, and some have published them.  For C
 
 	To help you with indentation.
 			    
-	**Note:** For CS2030S, these options are already included in the `~/.vimrc` file if you follow the [Vim setup guide](vim/setup.md). In fact, we recommend you follow the [Vim setup guide](vim/setup.md) instead and don't manually manage your own version of your `~/.vimrc` file.
+	**Note:** For CS2030S, these options are already included in the `~/.vimrc` file if you follow the [Vim setup guide](vim-setup.md). In fact, we recommend you follow the [Vim setup guide](vim-setup.md) instead and don't manually manage your own version of your `~/.vimrc` file.
 	
 	Most other source code editors have similar configuration.  
 

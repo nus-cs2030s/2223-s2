@@ -1,14 +1,14 @@
-# Linking Your PE Accounts to Your GitHub Accounts
+# Linking Your PE Account to Your GitHub Account
 
 ## Prerequisites
 
-1. You should already have your SoC Unix account, cluster access, and be able to `ssh` into one of the PE hosts.  If you are not able to do this, please look at the guide on the [programming environments](environments.md)
-2. You should be comfortable with running basic UNIX commands.  If you have not gone through the UNIX guide and get your hands dirty, please [look at the guide and play with the various basic Unix commands](unix-essentials.md).
+1. You should already have your SoC Unix account, cluster access, and SoC VPN set up, and be able to `ssh` into one of the PE hosts.  If you are not able to do this, please look at the guide on [programming environments](environments.md)
+2. You should feel comfortable running basic UNIX commands.  If you have not gone through the UNIX guide and get your hands dirty, please [look at the guide and play with the various basic Unix commands](unix/essentials.md).
 3. You should already have a GitHub account and can log into [GitHub.com](https://www.github.com).
 
 ## Purpose
 
-Your will be using `git` (indirectly) for retrieving skeleton code and submitting completed assignments.  We will set up your accounts on PE hosts below so that `git` will be associated with your GitHub account.  This is a one-time setup.  You don't have to do this for every assignment.
+Your will be using `git` (indirectly) for retrieving skeleton code and submitting completed assignments.  We will set up your accounts on a PE host below so that `git` will be associated with your GitHub account.  This is a one-time setup.  You don't have to do this for every assignment.
 
 ## 1. Setting up `.gitconfig`
 
@@ -19,10 +19,10 @@ Create and edit a file called `.gitconfig` in **your home directory on the PE ho
   name = Your Name
   email = Your Email
 [github]  
-  user = Your GitHub username
+  user = Your GitHub Username
 ```
 
-Your email should be whatever you used to sign up GitHub (which may not be your SoC or NUS email).
+Your email should be whatever you used to sign up on GitHub (which may not be your SoC or NUS email).
 
 For example, a sample `.gitconfig` looks like this:
 
@@ -40,35 +40,35 @@ After saving this file, run:
 git config --get github.user
 ```
 
-It should return your GitHub user name.
+It should return your GitHub username.
 
-It should print your GitHub user name as already set.  If there is a typo, you need to edit `.gitconfig` again and reload it by repeating the command above.
+It should print your GitHub username as already set.  If there is a typo, you need to edit `.gitconfig` again and reload it by repeating the command above.
 
 ## 2. Setting up Password-less Login
 
 ### Basic of SSH Keys
 
-SSH uses _public-key cryptography_ for authentication.  The keys come in pairs: a public key and a private key.  The private key must be kept safe and known only to you.  You should keep the private key in your account, and not share it with others.
+SSH uses _public-key cryptography_ for authentication.  The keys come in pairs: a public key and a private key.  The private key must be kept safe and known only to you.  You should keep the private key in your PE account, and not share it with others.
 
-To authenticate yourself to another host or service, you configure the host/service with your public key.  When it is time for you to log in, your private key is "matched" with your public key.  Since only you know your private key, the service or the host can be sure that you are you and not someone else.
+To authenticate yourself to another host or service, you configure the host/service with your public key.  When it is time for you to log in, your private key is "matched"[^1] with your public key.  Since only you know your private key, the service or the host can be sure that you are you and not someone else.
 
-Suppose you want to log in from host X to host Y without a password.  You generate a pair of keys on X, then keep the private keys on X and store the public keys on Y.  If you want to [setup SSH Keys](environments.md#setting-up-ssh-keys) so that you can log into PE hosts from your computer without a password, for example, you generate the pair of keys on your computer (X) and then copy the public key to PE hosts.
+Suppose you want to log in from host X to host Y without a password.  You generate a pair of keys on X, then keep the private keys on X and store the public keys on Y.  If you want to [set up SSH Keys](environments.md#setting-up-ssh-keys) so that you can log into a PE host from your computer without a password, for example, you generate the pair of keys on your computer (X) and then copy the public key to a PE host.
 
-Our goal now is to authenticate ourselves to GitHub from the PE hosts.  So, X is a PE host, and Y is GitHub.
+Our goal now is to authenticate ourselves to GitHub from the PE host.  So, X is the PE host, and Y is GitHub.
 
 ### Generating SSH keys
 
-The steps are explained in detail on [GitHub Docs](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).  Here is a summary of the steps that you should follow for CS2030S:
+The steps are explained in detail on [GitHub Docs](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).  Here is a summary of the steps that you should follow:
 
 On any of the PE hosts, run
 ```
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-where `your_email@example.com` is the email your associate with you used to sign up your GitHub account (i.e., the same one you entered in `.gitconfig`).
+where `your_email@example.com` is the email your associate with you, when you signed up for your GitHub account (i.e., the same one you entered in `.gitconfig`).
 
 The command will prompt you where to save the key.  Just press ++enter++ to save into the default location, which is `$HOME/.ssh/id_ed25519`.
 
-You will then be prompted for a passphrase.  Since our goal is to automate assignment submission without needing to type anything, you should enter an empty passphrase.  This increases the security risk, but then, we are working with CS2030S assignments here, not a top-secret project.  So empty passphrase will do.
+You will then be prompted for a passphrase.  Since our goal is to automate assignment submission without needing to type anything, you should enter an empty passphrase.  This increases the security risk, but then, we are working with lab assignments, not a top-secret project.  So empty passphrase will do.
 
 You should see something like this:
 ```
@@ -95,12 +95,12 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-### Adding Your CS2030S Public Key to Your GitHub Account
+### Adding Your PE Host Public Key to Your GitHub Account
 
 
-The next step involves logging into GitHub.com, click on your avatar on the top right corner, and choose "Settings".  Then choose "SSH and GPG keys" on the sidebar.
+The next step involves logging into GitHub.com: click on your avatar in the top right corner, and choose "Settings".  Then choose "SSH and GPG keys" on the sidebar.
 
-Then, click either "New SSH key" or "Add SSH key".  Enter an appropriate title for the key (e.g., "CS2030 PE Hosts").
+Then, click either "New SSH key" or "Add SSH key".  Enter an appropriate title for the key (e.g., "PE Hosts").
 
 Next, you need to paste your public key into the text box.  Go back to your terminal and run 
 
@@ -140,3 +140,4 @@ or other error messages.
 
 Note that you need to connect with the username `git`.  Do not use your GitHub username (e.g., do not use `ssh -T ooiwt@github.com`)
 
+[^1]: I skipped many cool details here.  This topic is part of CS2105 and CS2107.  Interested students can google up various articles and videos online about how public-key cryptography is used for authentication.

@@ -1,71 +1,32 @@
 nav:
   - Home: 'index.md'
   - Notes:
-    - Introduction (00-03):
-      - 0. Overview: '00-overview.md'
-      - 1. Program and Compiler: '01-compiler.md'
-      - 2. Variable and Type: '02-type.md'
-      - 3. Functions: '03-function.md'
-    - OOP (04-19):
-      - 4. Encapsulation: '04-encapsulation.md'
-      - 5. Information Hiding: '05-infohiding.md'
-      - 6. Tell, Don't Ask: '06-tell-dont-ask.md'
-      - 7. Class Fields: '07-static-field.md'
-      - 8. Class Methods: '08-static-method.md'
-      - 9. Composition: '09-composition.md'
-      - 10. Heap and Stack: '10-heap-stack.md'
-      - 11. Inheritance: '11-inheritance.md'
-      - 12. Overriding: '12-overriding.md'
-      - 13. Overloading: '13-overloading.md'
-      - 14. Polymorphism: '14-polymorphism.md'
-      - 15. Method Invocation: '15-dynamic-binding.md'
-      - 16. LSP: '16-lsp.md'
-      - 17. Abstract Class: '17-abstract.md'
-      - 18. Interface: '18-interface.md'
-      - 19. Wrapper Class: '19-wrapper.md'
-    - Types (20-27):
-      - 20. Casting: '20-casting.md'
-      - 21. Variance: '21-variance.md'
-      - 22. Exception: '22-exception.md'
-      - 23. Generics: '23-generics.md'
-      - 24. Type Erasure: '24-erasure.md'
-      - 25. Unchecked Warnings: '25-unchecked.md'
-      - 26. Wildcards: '26-wildcard.md'
-      - 27. Type Inference: '27-inference.md'
-    - Functional (28-36):
-       - 28. Immutability: '28-immutability.md'
-       - 29. Nested Classes: '29-nested-classes.md'
-       - 30. Functions: '30-functions.md'
-       - 31. Box and Maybe: '31-box-maybe.md'
-       - 32. Lazy Evaluation: '32-lazy.md'
-       - 33. Infinite List: '33-infinitelist.md'
-       - 34. Stream: '34-stream.md'
-       - 35. Loggable: '35-logger.md'
-       - 36. Monad: '36-monad.md'
-    - Parallel (37-40):
-       - 37. Parallel Streams: '37-parallel.md'
-       - 38. Threads: '38-thread.md'
-       - 39. Async: '39-async.md'
-       - 40. Fork and Join: '40-forkjoin.md'
-  - Guide:
+    - 0. Overview: '00-overview.md'
+  - Lab Guide:
     - Programming Environments: 'environments.md'
     - GitHub Setup: 'github.md'
-    - Using Unix CLI:
-       - Background: 'unix-background.md'
-       - Essentials: 'unix-essentials.md'
-       - Advanced: 'unix-advanced.md'
-    - Using Vim: 
-       - Background: 'vim-philosophy.md'
-       - Setup: 'vim-setup.md'
-       - Lessons: 'vim-quick-lessons.md'
-       - Tips: 'vim-tips.md'
-       - Plugins: 'vim-plugins.md'
-    - Using Panopto: 'panopto/panopto.md'
-    - Java Style Guide: 'style.md'
-    - JavaDoc Guide: 'javadoc.md'
-    - Lab Guide: 'lab.md'
+    - Unix CLI:
+       - Background: 'unix/background.md'
+       - Essentials: 'unix/essentials.md'
+       - Advanced: 'unix/advanced.md'
+    - Vim: 
+       - Background: 'vim/philosophy.md'
+       - Setup: 'vim/setup.md'
+       - Lessons: 'vim/quick-lessons.md'
+       - Tips: 'vim/tips.md'
+       - Plugins: 'vim/plugins.md'
+  - Java Guide: 
+       - Coding Style: 'style.md'
 theme: 
   name: material
+  features: 
+    - navigation.instant
+    - toc.follow
+    - toc.integrate
+    - content.code.annotate
+  palette:
+    primary: deep purple
+    accent: deep purple
   shortcuts:
     previous: 72 #h
     next: 76 #l
@@ -73,11 +34,12 @@ theme:
 
 site_name: CS2030S Programming Methodology II
 # repo_url: https://github.com/nus-cs1010/1819-s1
-site_url: https://nus-cs2030s.github.io/2122-s2
-copyright: Copyright by Department of Computer Science, National University of Singapore 2022
+site_url: https://nus-cs2030s.github.io/2223-s2
+copyright: Copyright by Department of Computer Science, National University of Singapore 2023
 # remote_branch: gh-pages
 use_directory_urls: false
 markdown_extensions:
+  - md_in_html
   - admonition
   - attr_list
   - pymdownx.highlight:
@@ -92,7 +54,13 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.inlinehilite
-  - pymdownx.keys
+  - pymdownx.keys:
+      key_map: {
+        bang: "!",
+        dollar: "$",
+        parenthesis-left: "(",
+        parenthesis-right: ")",
+      }
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.superfences
