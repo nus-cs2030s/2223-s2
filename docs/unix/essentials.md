@@ -167,7 +167,7 @@ $ ls
 All the above commands should complete successfully and _silently_.  Let's populate the directory with a new file.  Cut-and-paste the command below into the command prompt:
 
 ```
-wget https://raw.githubusercontent.com/nus-unix-workshop/2021-s1/master/test.txt
+wget https://www.comp.nus.edu.sg/~ooiwt/unix-workshop/test.txt
 ```
 
 You should see a file being downloaded and saved with an output similar to below:
