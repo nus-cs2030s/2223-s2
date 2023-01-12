@@ -6,7 +6,7 @@ Here is a quick walkthrough to get a taste of `vim.`
 
 Download the following file for practice using `vim` in this session.
 ```
-$ wget https://raw.githubusercontent.com/nus-unix-workshop/2021-s1/master/jfk.txt
+$ wget https://www.comp.nus.edu.sg/~ooiwt/unix-workshop/jfk.txt
 ```
 
 The file named `jfk.txt` should be downloaded.  Now let's start your first `vim` session.
