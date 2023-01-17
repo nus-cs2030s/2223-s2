@@ -110,7 +110,7 @@ Primitive types are types that holds numeric values (integers, floating-point nu
 
 For storing integral values, Java provides four types, `byte`, `short`, `int`, and `long`, for storing 8-bit, 16-bit, 32-bit, 64-bit signed integers respectively.  The type `char` stores 16-bit unsigned integers representing UTF-16 Unicode characters.
 
-For storing floating-point values, Java provides two types, `float` and `double`, for 16-bit and 32-bit floating-point numbers.
+For storing floating-point values, Java provides two types, `float` and `double`, for 32-bit and 64-bit floating-point numbers.
 
 Unlike reference types, which we will see later, primitive type variables never share their value with each other, i.e., if we have:
 ```Java
