@@ -24,7 +24,7 @@ A repo will be created automatically for you.
     Do not interact with the lab repo directory using GitHub or other `git` commands.
 
 
-### 2. Read and Understand the Lab Assignment
+### 2. Read and Understand the Lab Question
 
 The lab question will be given in a link on Canvas.
 

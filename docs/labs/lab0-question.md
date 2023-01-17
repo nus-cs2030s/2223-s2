@@ -11,11 +11,11 @@
 
 ## Estimating Pi using Monte Carlo Method
 
-The Monte Carlo method for estimating the value of pi is as follows.  We have a square of width 2r, and within it, a circle with a radius of r.
+The Monte Carlo method for estimating the value of $\pi$ is as follows.  We have a square of width $2r$, and within it, a circle with a radius of $r$.
 
-We randomly generate k points within the square.  We count how many points fall within the circle.  Suppose n points out of k fall within the circle.
+We randomly generate $k$ points within the square.  We count how many points fall within the circle.  Suppose $n$ points out of $k$ fall within the circle.
 
-Since the area of the square is 4r^2 and the area of the circle is pi r^2, the ratio between them is pi/4.  The ratio n/k should therefore be pi/4, and pi can be estimated as 4n/k.
+Since the area of the square is $4r^2$ and the area of the circle is $\pi r^2$, the ratio between them is $\pi/4$.  The ratio $n/k$ should therefore be $\pi/4$, and $\pi$ can be estimated as $4n/k$.
 
 ### Background: Random Number Generator
 
