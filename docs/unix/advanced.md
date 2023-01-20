@@ -11,7 +11,7 @@ After reading this article, students should
 - know how to use ++tab++, ++ctrl+p++, and ++ctrl+n++ to work more efficiently in `bash`
 - know how to save time and effort by automating long complex commands using `bash` scripts
 
-# Composing Programs with `|`
+## Composing Programs with `|`
 
 Another key innovation of Unix that led to its success is the invention of the `|` operator.  
 
