@@ -23,7 +23,15 @@ A repo will be created automatically for you.
 !!! warning "WARNING"
     Do not interact with the lab repo directory using GitHub or other `git` commands.
 
-### 2. Get a Copy on PE Hosts
+
+### 2. Read and Understand the Lab Question
+
+The lab question will be given in a link on Canvas.
+
+Read through the question carefully before starting your lab.
+
+
+### 3. Get a Copy on PE Hosts
 
 For your first-ever lab, you will need to create a configuration file (see the [GitHub Setup](github.md) guide). After that, proceed as per normal below.
 
@@ -31,26 +39,26 @@ Run the command `~cs2030s/get-labX` (where X is the lab number) to clone a copy 
 
 You can edit the code, compile, test, etc, on the PE hosts.
 
-The lab sheet for each lab is given in the file `Question.md`.  You should get used to reading the question in text format.  You can open two files side-by-side with `vim -O file1 file2` or in different tabs with `vim -p file1 file2`.
+You can open two files side-by-side with `vim -O file1 file2` or in different tabs with `vim -p file1 file2`.
 
 !!! warning "WARNING"
     Do not edit your code directly on GitHub.
 
-### 3. Submit a Copy 
+### 4. Submit a Copy 
 
 When you are ready to submit, run `~cs2030s/submit-labX` (where X is the lab number).  This will submit a copy to GitHub.  You can submit multiple times, but only the last copy will be graded.
 
 !!! warning "WARNING"
     Do not use `git push` or other `git` commands to submit your code to GitHub.
 
-### 4. Receiving Feedback
+### 5. Receiving Feedback
 
 The tutors will grade and comment on your submission on Github after the deadline.  You should receive both your comments and your preliminary marks on GitHub.  You can reply to their comment, etc, on GitHub as well.  Communicate with your grader via Piazza (or directly if they preferred) if you think the grading is unfair.
 
 !!! warning "WARNING"
     Do not change your code on GitHub after the deadline (by either re-running `submit-labX` or using `git` commands directly).  If you wish to improve upon your code after feedback from the tutors, replicate it in your own personal repo.
 
-### 5. Receiving Final Grades
+### 6. Receiving Final Grades
 
 A file named `feedback.md` summarizing your marks will be placed into your GitHub repo.  Your marks will be posted on Canvas Gradebook.
 
