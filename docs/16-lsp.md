@@ -149,7 +149,7 @@ For instance,
 ```Java
 class Circle {
    :
-  final public boolean contains(Point p) {
+  public final boolean contains(Point p) {
 	:
   }
 }
