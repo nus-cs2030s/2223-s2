@@ -149,7 +149,7 @@ class AI extends A implements I{
 }
 ```
 
-The lesson here is that when we using typecasting, we are telling the compiler that *we know best*, and therefore it will not warn us or stop us from making bad decisions. It is important to always be sure when you use an explicit typecast.
+The lesson here is that when we are using typecasting, we are telling the compiler that *we know best*, and therefore it will not warn us or stop us from making bad decisions. It is important to always be sure when you use an explicit typecast.
 
 
 ## Impure Interfaces
