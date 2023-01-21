@@ -55,7 +55,7 @@ Another way to develop an intuition of the LSP is through the lens of testing. W
 
 [^2]: The test cases we are describing here are known as black-box tests and you will encounter these in later modules at NUS. We will not go into any further details in this module.
 
-Let's look at an example. We would like to model a restaurant booking system for a restaurant chain. Consider the following `Restaurant` class.  Every restaurant in the chain opens at 12 pm and closes at 10 pm, and has a singular method `canMakeReservation` which allows us to check if the restaurant is available for reservations at a certain `time`.  The requirement given is that, the system must be able to process a reservation during its opening hours.
+Let's look at an example. We would like to model a restaurant booking system for a restaurant chain. Consider the following `Restaurant` class.  Every restaurant in the chain opens at 12 pm and closes at 10 pm, and has a singular method `canMakeReservation` which allows us to check if the restaurant is available for reservations at a certain `time`.  **The requirement given is that, the system must be able to process a reservation during its opening hours.**
 
 ```Java
 public class Restaurant {

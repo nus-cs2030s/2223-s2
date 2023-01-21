@@ -108,6 +108,50 @@ If a class $C$ implements an interface $I$, $C <: I$.   This definition implies 
 
 In the example above, `Flat` <: `GetAreable` and `Flat` <: `RealEstate`.
 
+
+## Casting using an Interface
+
+Like any type in Java, it is also possible cast using an Interface. Lets consider an interface `I` and two classes `A` and `B`. Note that `A` does not implement `I`
+
+```Java
+interface I {
+  :
+}
+
+class A {
+  :
+}
+
+class B implements I {
+  :
+}
+```
+
+Now lets, consider the following code excerpt:
+
+```Java
+I i1 = new B(); // Compiles, widening type conversion
+I i2 = (I) new A(); // Also compiles?
+```
+
+Note that even though `A` does not implement `I`, the Java compiler allows this code to compile. Constrast this with casting between classes which have no subtype relationship:
+
+```Java
+A a = (A) new B(); // Does not compile
+B a = (B) new A(); // Does not compile
+```
+
+How do we explain this? Well, the Java compiler will not let us cast, when it is provable that it won't work, i.e. casting between two classes which have no subtype relationship. However, for interfaces, there is the *possibility* that a subclass *could* implement the interface and therefore Java allows it to compile. Consider one such potential subclass `AI`:
+
+```Java
+class AI extends A implements I{
+  :
+}
+```
+
+The lesson here is that when we using typecasting, we are telling the compiler that *we know best*, and therefore it will not warn us or stop us from making bad decisions. It is important to always be sure when you use an explicit typecast.
+
+
 ## Impure Interfaces
 
 As we mentioned at the beginning of this module, it is common for software requirements, and their design, to continuously evolve.  But once we define an interface, it is difficult to change.

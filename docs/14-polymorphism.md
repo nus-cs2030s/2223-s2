@@ -107,9 +107,12 @@ This is more complicated than `toString`.  There are a few new concepts involved
 
 - `equals` takes in a parameter of compile-time type `Object`.  It only makes sense if we compare (during run-time) a circle with another circle.  So, we first check if the run-time type of `obj` is a subtype of `Circle`.  This is done using the `instanceof` operator.  The operator returns `true` if `obj` has a run-time type that is a subtype of `Circle`.
 - To compare `this` circle with the given circle, we have to access the center `c` and radius `r`.  But if we access `obj.c` or `obj.r`, the compiler will complain.  As far as the compiler is concerned, `obj` has the compile-time type `Object`, and there is no such fields `c` and `r` in the class `Object`!  This is why, after assuring that the run-time type of `obj` is a subtype of `Circle`, we assign `obj` to another variable `circle` that has the compile-time type `Circle`.  We finally check if the two centers are equal (again, `Point::equals` is left as an exercise) and the two radii are equal[^2].
-- The statement that assigns `obj` to `circle` involves _type casting_.  We mentioned before that Java is strongly typed and so it is very strict about type conversion.  Here, Java allows type casting from type $T$ to $S$ if $S <: T$.  This is called _narrowing type conversion_.  Unlike widening type conversion, which is always allowed and always correct, a _narrowing type conversion_ requires explicit typecasting and validation during run-time.  If we do not ensure that `obj` has the correct run-time type, casting can lead to a run-time error (which if you [recall](01-compiler.md), is bad).
+- The statement that assigns `obj` to `circle` involves _type casting_.  We mentioned before that Java is strongly typed and so it is very strict about type conversion.  Here, Java allows type casting from type $T$ to $S$ if $S <: T$. [^3]: This is called _narrowing type conversion_.  Unlike widening type conversion, which is always allowed and always correct, a _narrowing type conversion_ requires explicit typecasting and validation during run-time.  If we do not ensure that `obj` has the correct run-time type, casting can lead to a run-time error (which if you [recall](01-compiler.md), is bad).
 
 [^2]: The right way to compare two floating-point numbers is to take their absolute difference and check if the difference is small enough.  We are sloppy here to keep the already complicated code a bit simpler.  You shouldn't do this in your code.
+
+[^3]: This is not the only condition where type casting is allowed. We will look at other conditions in later units.
+
 
 All these complications would go away, however, if we define `Circle::equals` to take in a `Circle` as a parameter, like this:
 
