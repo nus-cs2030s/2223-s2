@@ -9,7 +9,7 @@ After reading this unit, students should
 
 In the previous unit, we introduced _method overriding_. That is, when a subclass defines an instance method with the same _method descriptor_ as an instance method in the parent class.
 
-In contrast, _method overloading_ is when we have two or more methods in the same class with the same name but a differing _method signature_[^1]. In other words, we create an overloaded method by changing the type, order, and number of arguments of the method but keeping the method name identical. 
+In contrast, _method overloading_ is when we have two or more methods in the same class with the same name but a differing _method signature_[^1]. In other words, we create an overloaded method by changing the type, order, and number of parameters of the method but keeping the method name identical. 
 
 [^1]: Note that this is not the same as the _method descriptor_. You can not overload a method by changing the return type.
 
@@ -25,7 +25,7 @@ public int add(int x, int y, int z) {
 }
 ```
 
-In the example above, the methods `add(int, int)` and `add(int, int, int)` are overloaded. They have the same name but a different number of arguments. We can see that this allows us to write methods to handle differing inputs. 
+In the example above, the methods `add(int, int)` and `add(int, int, int)` are overloaded. They have the same name but a different number of parameters. We can see that this allows us to write methods to handle differing inputs. 
 
 Now lets consider our `Circle` class again. Our `Circle::contains(Point)` method allows us to check if a `Point` is within the radius of the current instance of the `Circle`. We would like to create a new method `Circle::contains(double, double)` which will allow us to check if an `x` and `y` co-ordinate (another valid representation of a point) is within our circle.
 
@@ -63,7 +63,7 @@ class Circle {
 ```
 In the above example, `Circle::contains(Point)` and `Circle::contains(double, double)` are overloaded methods. 
 
-Recall that overloading requires changing the order, number, and/or type of arguments and says nothing about the names of the arguments. Consider the example below, where we have two `contains` methods in which we swap argument names. 
+Recall that overloading requires changing the order, number, and/or type of parameters and says nothing about the names of the parameters. Consider the example below, where we have two `contains` methods in which we swap parameter names. 
 
 ```Java
   public boolean contains(double x, double y) {

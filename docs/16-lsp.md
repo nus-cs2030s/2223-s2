@@ -71,7 +71,7 @@ public class Restaurant {
 }
 ```
 
-The method `canMakeReservation` returns `true` when the argument `time` is between 12 pm and 10 pm. Let's think about how we would test this method.  Two important edge cases to test is to check if the method returns true for the stated restaurant opening and closing hours.
+The method `canMakeReservation` returns `true` when the argument passed in to `time` is between 12 pm and 10 pm. Let's think about how we would test this method.  Two important edge cases to test is to check if the method returns true for the stated restaurant opening and closing hours.
 
 ```Java
 Restaurant r = new Restaurant();

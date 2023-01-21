@@ -96,7 +96,7 @@ You can see that the _references_ to the objects `p1` and `p2` are copied onto t
 Within the method, any modification done to `this` would change the object referenced to by `p1`, and any change made to `q` would change the object referenced to by `p2` as well.
 After the method returns, the stack frame for that method is destroyed.
 
-Let's consider a new `move` method for the class `Point` that has two arguments `(double x, double y)` and moves the `x` and `y` cordinates of the `Point`.
+Let's consider a new `move` method for the class `Point` that has two parameters `(double x, double y)` and moves the `x` and `y` cordinates of the `Point`.
 
 ```Java
 class Point {
