@@ -11,7 +11,7 @@ We have seen that, with the power of dynamic binding and polymorphism, we can wr
 
 ```Java hl_lines="3"
 // version 0.1 (with polymorphism)
-boolean contains(Object array[], Object obj) {
+boolean contains(Object[] array, Object obj) {
   for (Object curr : array) {
     if (curr.equals(obj)) {
       return true;
@@ -60,7 +60,7 @@ For example, let's consider again the invocation in the highlighted line below a
 
 ```Java hl_lines="3"
 // version 0.1 (with polymorphism)
-boolean contains(Object array[], Object obj) {
+boolean contains(Object[] array, Object obj) {
   for (Object curr : array) {
     if (curr.equals(obj)) {
       return true;

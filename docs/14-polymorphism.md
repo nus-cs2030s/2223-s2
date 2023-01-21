@@ -136,7 +136,7 @@ Let's consider the following example.  Suppose we have a general `contains` meth
 
 ```Java
 // version 0.1 (with polymorphism)
-boolean contains(Object array[], Object obj) {
+boolean contains(Object[] array, Object obj) {
   for (Object curr : array) {
     if (curr.equals(obj)) {
       return true;
@@ -153,7 +153,7 @@ However, if `Circle::equals` takes in a `Circle` as the parameter, the call to `
 To have a generic `contains` method without polymorphism and overriding, we will have to do something like this:
 ```Java
 // version 0.2 (without polymorphism)
-boolean contains(Object array[], Object obj) {
+boolean contains(Object[] array, Object obj) {
   for (Object curr : array) {
     if (obj instanceof Circle) {
       if (curr.equals((Circle)obj)) {
