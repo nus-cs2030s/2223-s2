@@ -39,7 +39,7 @@ Let's generalize the compile-time type of the target to $C$.  To determine the m
 
 In the example above, we look at the class `Object`, and there is only one method called `equals`.  The method can be correctly invoked with one argument of type `Object`.
 
-What if there are multiple methods that can be correctly invoked?  In this case, we choose the _most specific_ one.  Intuitively, a method $M$ is more specific than method $N$ if the arguments to $M$ can be passed to $N$ without compilation error.  For example, let's say a class `Circle` implements:
+What if there are multiple methods that can correctly accept the argument?  In this case, we choose the _most specific_ one.  Intuitively, a method $M$ is more specific than method $N$ if the arguments to $M$ can be passed to $N$ without compilation error.  For example, let's say a class `Circle` implements:
 ```
 	 boolean equals(Circle c) { .. }
 
