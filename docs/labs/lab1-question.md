@@ -115,7 +115,7 @@ The customers are sorted in increasing order of arrival time.
 
 ## Assumptions
 
-We assume that no two events ever occur at the same time. As per all labs, we assume that the input is correctly formatted.
+We assume that no two events with the same time will ever be in the collection of events and no customer will arrive exactly at the same time as another customer is leaving. As per all labs, we assume that the input is correctly formatted.
 
 ## Your Task
 
