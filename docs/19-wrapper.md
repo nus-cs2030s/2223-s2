@@ -52,7 +52,7 @@ All primitive wrapper class objects are _immutable_ -- once you create an object
 
 ## Auto-boxing and Unboxing
 
-As conversion back-and-fro between a primitive type and its wrapper class is pretty common, Java provides a feature called auto-boxing/unboxing to perform type conversion between primitive type and its wrapper class.
+As conversion back-and-forth between a primitive type and its wrapper class is pretty common, Java provides a feature called auto-boxing/unboxing to perform type conversion between primitive type and its wrapper class.
 
 For instance,
 ```

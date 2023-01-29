@@ -8,7 +8,7 @@ After this unit, students should:
 Both the methods `findLargest` and `contains` takes in an array of reference types as parameters:
 ```Java
 // version 0.4
-GetAreable findLargest(GetAreable[] rray) {
+GetAreable findLargest(GetAreable[] array) {
   double maxArea = 0;
   GetAreable maxObj = null;
   for (GetAreable curr : array) {
