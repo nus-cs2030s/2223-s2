@@ -17,7 +17,7 @@ Lab 2 also nudges you towards following good coding practice by adhering to a pu
 
 ## Simulating a Bank with a Queue
 
-Recall that, no waiting wass allowed inside the bank we are simulating.  The bank is losing customers as a customer departs if all the counters are busy.
+Recall that, no waiting was allowed inside the bank we are simulating.  The bank is losing customers as a customer departs if all the counters are busy.
 
 Lab 2 adds an entrance queue to the bank.  If all counters are busy when a customer arrives, the customer will join the queue and wait.  When a counter becomes available, the customer at the front of the queue will proceed to the counter for service.
 
@@ -83,7 +83,7 @@ In addition to adding an entrance queue to the bank, we need to make the followi
 
 1. There is an additional input parameter in the first line of the input file, an integer $m$, indicating the maximum allowed length of the entrance queue. This input parameter should be read immediately after reading the number of customers and the number of service counters.
 
-2. Customers now come to bank with a task they intend to do, either to `deposit` or `withdrawal`. As such, there is an additional input parameter for each customer arrival, an `int` which is either $1$ for deposit or $0$ for withdrawal.
+2. Customers now come to the bank with a task they intend to do, either to `deposit` or `withdrawal`. As such, there is an additional input parameter for each customer arrival, an `int` which is either $1$ for deposit or $0$ for withdrawal.
 
 3. A customer will now be printed with a single letter prefix `C`.  For instance, instead of `Customer 1`, we print `C1`.
 
@@ -119,7 +119,7 @@ We assume that no two events involving two different customers ever occur at the
 
 Your task for this lab is to (i) improve upon your design for Lab 1 if needed, (ii) update `BankSimulation` and associated classes to simulate the entrance queue, (iii) update the input and output components of the classes to conform to the specification above.
 
-If the design for Lab 1 follows the OOP principles, then only about 40 lines of changes/additions are required.
+If the design for Lab 1 follows the OOP principles, then only about 50 lines of changes/additions are required.
 
 ## Compiling, Testing, and Debugging
 
