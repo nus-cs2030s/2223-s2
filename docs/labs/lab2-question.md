@@ -1,13 +1,17 @@
 # Lab 2: Simulation 2
 
 - Deadline: 7 February 2023, Tuesday, 23:59 SST
-- Marks: 3%
+- Marks: 12
+- Weightage: 3%
 
 ## Prerequisite:
 
 - Completed Lab 1
 - Caught up to Unit 19 of Lecture Notes
 - Familiar with CS2030S Java style guide
+- Revised the CS2030S Lab guide
+
+**Reminder:** Only use the submit and get scripts. Do not use any git commands.
 
 ## Goal
 
