@@ -87,7 +87,7 @@ In addition to adding an entrance queue to the bank, we need to make the followi
 
 1. There is an additional input parameter in the first line of the input file, an integer $m$, indicating the maximum allowed length of the entrance queue. This input parameter should be read immediately after reading the number of customers and the number of service counters.
 
-2. Customers now come to the bank with a task they intend to do, either to `deposit` or `withdrawal`. As such, there is an additional input parameter for each customer arrival, an `int` which is either $1$ for deposit or $0$ for withdrawal.
+2. Customers now come to the bank with a task they intend to do, either to `deposit` or `withdrawal`. As such, there is an additional input parameter for each customer arrival, an `int` which is either $0$ for deposit or $1$ for withdrawal.
 
 3. A customer will now be printed with a single letter prefix `C`.  For instance, instead of `Customer 1`, we print `C1`.
 
