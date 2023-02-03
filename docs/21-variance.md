@@ -59,7 +59,9 @@ We say a complex type is:
 
 ## Java Array is Covariant
 
-Array is covariant in Java.  This means that, if $S <: T$, then $S[] <: T[]$.  
+ Arrays of reference types are covariant in Java[^1].  This means that, if $S <: T$, then $S[] <: T[]$.  
+
+[^1]: Arrays of primitive types are invariant.
 
 For example, because `Integer` <: `Object`, we have `Integer[]` <: `Object[]` and we can do the following:
 
