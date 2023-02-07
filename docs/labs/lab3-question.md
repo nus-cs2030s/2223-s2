@@ -18,17 +18,15 @@ Lab 3 also involves writing your own generic classes.
 
 ## Queueing at The Counters
 
-The Bank has now decided to streamline its operations and change all counters to be either withdrawal or deposit counters. At these counters, customers can only
-
-In addition, the Bank decided to rearrange the layout and make some space for queues at the counters. With that, customers can now wait at individual counters.
+The Bank has now decided to streamline its operations and rearrange the layout and make some space for queues at the counters. With that, customers can now wait at individual counters. Customers can also now come to the bank to open a bank account, as well as withdraw or deposit money.
 
 In this lab, we will modify the simulation to add a counter queue to each counter.  If all the counters are busy when a customer arrives, the customer will join a queue and wait. When a counter becomes available, the customer at the front of the queue will proceed to the counter for service.  Each counter queue has a maximum queue length of $L$.  If every counter queue has reached its maximum capacity of $L$, then an arriving customer has to wait at the entrance queue.
 
-Just like Lab 2, the entrance queue has a maximum queue length of $m$.  If there are already m customers waiting in the entrance queue, an arriving customer will be turned away.
+Just like Lab 2, the entrance queue has a maximum queue length of $m$.  If there are already $m$ customers waiting in the entrance queue, an arriving customer will be turned away.
 
 With the addition of counters, there is a change to the customer behavior in choosing which counter to join:
 
-- If more than one counter available, a customer will go to the counter with the smallest id (just like Lab 2) 
+- If more than one counter is available, a customer will go to the counter with the smallest id (just like Lab 2) 
 
 - If none of the counters is available, then the customer will join the counter with the shortest queue.  If there are two counters with the same queue length, we break ties with their id.
 
@@ -119,7 +117,7 @@ By incorporating `Queue<T>`, `Array<T>`, `BankCounter`, modify your simulation s
 
 We also need to make the following changes to the input and output of the program.
 
-1. There is an additional input parameter, an integer L, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately _after_ reading the number of bank counters and _before_ the maximum allowed length of the entrance queue.
+1. There is an additional input parameter, an integer $L$, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately _after_ reading the number of bank counters and _before_ the maximum allowed length of the entrance queue.
 
 2. Customers now have a new possible task for opening a bank account. The input parameter for each customer arrival, is now therefore an `int` which is $0$ for deposit, $1$ for withdrawal, or $2$ for opening an account. For example, Customer `C2` opening an account at bank counter `S0` would be printed as:
 ```
@@ -167,9 +165,9 @@ You may test your simulation code similarly to how you test your Lab 2.
 
 ### Test Cases
 
-A series of test cases `Lab3.x.in` and `Lab3.x.out` are provided.  Test cases for `x` $= 1 to 10$ duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of L (max counter queue length).   We set $L$ to $0$ in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).
+A series of test cases `Lab3.x.in` and `Lab3.x.out` are provided.  Test cases for `x` $= 1 to 10$ duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of $L$ (max counter queue length).   We set $L$ to $0$ in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).
 
-Test case $x = 11$ to $13$ are test cases without entrance queue ($m = 0$). The rest of the test cases test scenarios with both entrance and counter queues.
+Test Case $x = 11$ introduces the new task type. Test case $x = 12$ to $14$ are test cases without an entrance queue ($m = 0$). The rest of the test cases test scenarios with both entrance and counter queues.
 
 ## Grading
 
