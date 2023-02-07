@@ -18,7 +18,9 @@ Lab 3 also involves writing your own generic classes.
 
 ## Queueing at The Counters
 
-Despite adding an entrance queue, the Bank is still losing customers.  With CNY coming, the Bank decided to rearrange the layout and make some space for queues at the counters. With that, customers can now wait at individual counters.
+The Bank has now decided to streamline its operations and change all counters to be either withdrawal or deposit counters. At these counters, customers can only
+
+In addition, the Bank decided to rearrange the layout and make some space for queues at the counters. With that, customers can now wait at individual counters.
 
 In this lab, we will modify the simulation to add a counter queue to each counter.  If all the counters are busy when a customer arrives, the customer will join a queue and wait. When a counter becomes available, the customer at the front of the queue will proceed to the counter for service.  Each counter queue has a maximum queue length of $L$.  If every counter queue has reached its maximum capacity of $L$, then an arriving customer has to wait at the entrance queue.
 
@@ -30,7 +32,7 @@ With the addition of counters, there is a change to the customer behavior in cho
 
 - If none of the counters is available, then the customer will join the counter with the shortest queue.  If there are two counters with the same queue length, we break ties with their id.
 
-Note that, when a counter is done serving a customer, one  customer from the entrance queue may join the counter queue of that counter.
+Note that, when a counter is done serving a customer, one customer from the entrance queue may join the counter queue of that counter.
 
 ## Building on Lab 2
 
@@ -79,7 +81,7 @@ java QueueTest
 
 ### 2. Create a generic `Array<T>` class
 
-Let's call the class that encapsulates the counter `ServiceCounter` (you may name it differently).  We have been using an array to store the `ServiceCounter` objects. In Lab 3, you should replace that with a generic wrapper around an array.  In other words, we want to replace `ServiceCounter[]` with `Array<ServiceCounter>`.  You may build upon the `Array<T>` class from the notes -- [Unit 25](https://nus-cs2030s.github.io/2223-s2/25-unchecked.html).
+Let's call the class that encapsulates the counter `BankCounter` (you may name it differently).  We have been using an array to store the `BankCounter` objects. In Lab 3, you should replace that with a generic wrapper around an array.  In other words, we want to replace `BankCounter[]` with `Array<BankCounter>`.  You may build upon the `Array<T>` class from the notes -- [Unit 25](https://nus-cs2030s.github.io/2223-s2/25-unchecked.html).
 
 The `Array<T>` class you build must support the following:
 
@@ -103,32 +105,39 @@ javac -Xlint:rawtypes ArrayTest.java
 java ArrayTest
 ```
 
-### 3. Make Your `ServiceCounter` Comparable to Itself
+### 3. Make Your `BankCounter` Comparable to Itself
 
-Your class that encapsulates the service counter must now implement the `Comparable<T>` interface so that it can compare with itself and it can be used as a type argument for `Array<T>`.
+Your class that encapsulates the bank counter must now implement the `Comparable<T>` interface so that it can compare with itself and it can be used as a type argument for `Array<T>`.
 
 You should implement `compareTo` in such a way that `counters.min()` returns the counter that a customer should join (unless all the counter queues have reached maximum length).
 
 ### 4. Update Your Simulation
 
-By incorporating `Queue<T>`, `Array<T>`, `ServiceCounter`, modify your simulation so that it implements the bank with counter queues as described above.
+By incorporating `Queue<T>`, `Array<T>`, `BankCounter`, modify your simulation so that it implements the bank with counter queues as described above.
 
 ### 5. Other Changes Needed
 
 We also need to make the following changes to the input and output of the program.
 
-1. There is an additional input parameter, an integer L, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately _after_ reading the number of service counters and _before_ the maximum allowed length of the entrance queue.
+1. There is an additional input parameter, an integer L, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately _after_ reading the number of bank counters and _before_ the maximum allowed length of the entrance queue.
 
-2. Now that we have two types of queues, if a customer joins the entrance queue, the customer along with the queue _before_ joining should be printed as such:
+2. Customers now have a new possible task for opening a bank account. The input parameter for each customer arrival, is now therefore an `int` which is $0$ for deposit, $1$ for withdrawal, or $2$ for opening an account. For example, Customer `C2` opening an account at bank counter `S0` would be printed as:
+```
+5.100: C2 OpenAccount begin (by S0)
+7.100: C2 OpenAccount done (by S0)
+```
+
+3. Now that we have two types of queues, if a customer joins the entrance queue, the customer along with the queue _before_ joining should be printed as such:
 ```
 1.400: C3 joined bank queue [ C1 C2 ]
 ```
 
-3. The counter queue will be printed whenever we print a counter.
+4. The counter queue will be printed whenever we print a counter.
 ```
 1.200: C2 joined counter queue (at S0 [ C1 ])
-2.000: C0 service done (by S0 [ C1 C2 ])
+2.000: C0 Withdrawal done (by S0 [ C1 C2 ])
 ```
+
 
 ## Following CS2030S Style Guide
 
