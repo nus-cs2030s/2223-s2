@@ -12,7 +12,7 @@
 
 ## Goal
 
-This is a continuation of Lab 2.  Lab 3 changes some of the requirements of Lab 2 and adds some new things to the world that we are simulating.  The goal is to demonstrate that, when OO-principles are applied properly, we can adapt our code to changes in the requirement with less effort.
+This is a continuation of Lab 2.  Lab 3 changes some of the requirements of Lab 2 and adds some new things to the world that we are simulating.  The goal is to demonstrate that, when OO-principles are applied properly, we can adapt our code to changes in the requirements with less effort.
 
 Lab 3 also involves writing your own generic classes.
 
@@ -119,7 +119,7 @@ We also need to make the following changes to the input and output of the progra
 
 1. There is an additional input parameter, an integer $L$, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately _after_ reading the number of bank counters and _before_ the maximum allowed length of the entrance queue.
 
-2. Customers now have a new possible task for opening a bank account. The input parameter for each customer arrival, is now therefore an `int` which is $0$ for deposit, $1$ for withdrawal, or $2$ for opening an account. For example, Customer `C2` opening an account at bank counter `S0` would be printed as:
+2. Customers now have a new possible task: opening a bank account. The input parameter for each customer arrival, is now therefore an `int` which is $0$ for deposit, $1$ for withdrawal, or $2$ for opening an account. For example, Customer `C2` opening an account at bank counter `S0` would be printed as:
 ```
 5.100: C2 OpenAccount begin (by S0)
 7.100: C2 OpenAccount done (by S0)
@@ -167,7 +167,7 @@ You may test your simulation code similarly to how you test your Lab 2.
 
 A series of test cases `Lab3.x.in` and `Lab3.x.out` are provided.  Test cases for `x` $= 1 to 10$ duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of $L$ (max counter queue length).   We set $L$ to $0$ in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).
 
-Test Case $x = 11$ introduces the new task type. Test case $x = 12$ to $14$ are test cases without an entrance queue ($m = 0$). The rest of the test cases test scenarios with both entrance and counter queues.
+Test Case $x = 11$ introduces the new task type (Open Account). Test case $x = 12$ to $14$ are test cases without an entrance queue ($m = 0$). The rest of the test cases test scenarios with both entrance and counter queues.
 
 ## Grading
 
