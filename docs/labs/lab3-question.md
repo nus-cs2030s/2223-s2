@@ -165,7 +165,7 @@ You may test your simulation code similarly to how you test your Lab 2.
 
 ### Test Cases
 
-A series of test cases `Lab3.x.in` and `Lab3.x.out` are provided.  Test cases for `x` $= 1 to 10$ duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of $L$ (max counter queue length).   We set $L$ to $0$ in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).
+A series of test cases `Lab3.x.in` and `Lab3.x.out` are provided.  Test cases for `x` $= 1$ to $10$ duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of $L$ (max counter queue length).   We set $L$ to $0$ in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).
 
 Test Case $x = 11$ introduces the new task type (Open Account). Test case $x = 12$ to $14$ are test cases without an entrance queue ($m = 0$). The rest of the test cases test scenarios with both entrance and counter queues.
 
