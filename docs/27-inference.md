@@ -97,7 +97,7 @@ The code compiles!  Let's go through the type inferencing steps to understand wh
 - `strArray` has the type `String[]` and is passed to `T[]`.  So `T` must be `String` or its superclass `Object` (i.e. `String <: T <: Object`).  The latter is possible since Java array is covariant.
 - `123` is passed as type `T`.  The value is treated as `Integer` and, therefore, `T` must be either `Integer`,  or its superclasses `Number`, and `Object` (i.e. `Integer <: T <: Object`). 
 
-We take the overlap between these two constraints:
+Solving for these two constraints:
 ```
 T <: Object
 ```
@@ -175,7 +175,7 @@ What does the java compiler infer `T` to be? Lets look at all of the constraints
 
 - Our method argument is of type `Array<GetAreable>` and must be a subtype of `Array<? extends T>`, so `T` must be a supertype of `GetAreable` (i.e. `GetAreable <: T <: Object`).
 
-We can see that there no overlap of our contraints, `T` can not be both a subtype of `ColoredCircle` and a supertype of `GetAreable` and therefore the Java compiler can not find a type `T`. The Java compiler will throw an error stating the inference variable `T` has incompatible bounds.
+We can see that there no solution to our contraints, `T` can not be both a subtype of `ColoredCircle` and a supertype of `GetAreable` and therefore the Java compiler can not find a type `T`. The Java compiler will throw an error stating the inference variable `T` has incompatible bounds.
 
 Lets consider, one final example using the following method signature of a generic method `bar`:
 
@@ -195,7 +195,7 @@ What does the java compiler infer `T` to be? Again, lets look at all of the cons
 
 - Our method argument is of type `Array<Circle>` and must be a subtype of `Array<? super T>`, so `T` must be a subtype of `Circle` (i.e. `T <: Circle`).
 
-We take the overlap between these two constraints:
+Solving for these two constraints:
 ```
 T <: Circle
 ```
