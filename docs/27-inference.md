@@ -206,10 +206,12 @@ Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the a
 
 ## Rules for Type Inference
 
-First, we figure out all of the type constraints on our type parameters, and then we solve these constraints. If no type can satisfy all the constraints, we know that Java will fail to compile. If in resolving the type constraints for a given type parameter `T` we are left with:
+We now summarize the steps for type inference. First, we figure out all of the type constraints on our type parameters, and then we solve these constraints. If no type can satisfy all the constraints, we know that Java will fail to compile. If in resolving the type constraints for a given type parameter `T` we are left with:
 
 - `Type1 <: T <: Type2`, then `T` is inferred as `Type1`
-- `Type1 <: T`, then `T` is inferred as `Type1`
+- `Type1 <: T`[^2], then `T` is inferred as `Type1`
 - `T <: Type2`, then `T` is inferred as `Type2`
 
 where `Type1` and `Type2` are arbitrary types.
+
+[^2]: Note that `T <: Object` is implicit here. We can see that this case could also be written as `Type1 <: T <: Object`, and would therefore also be explained by the previous case (`Type1 <: T <: Type2`).
