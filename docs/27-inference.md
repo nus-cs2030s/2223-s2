@@ -55,10 +55,15 @@ We could remove the type argument `<Shape>` so that we can call `contains` just 
 
 and Java could still infer that `S` should be `Shape`.  The type inference process looks for all possible types that match.  In this example, the type of the two parameters must match.  Let's consider each individually first:
 
-- An object of type `Shape` is passed as an argument to the parameter `obj`.  So `S` might be `Shape` or, if widening type conversion has occurred, one of the other supertypes of `Shape`.
-- An `Array<Circle>` has been passed into `Array<? extends S>`.  A widening type conversion occurred here, so we need to find all possible `S` such that `Array<Circle>` <: `Array<? extends S>`.  This is true only if `S` is `Circle`, or another supertype of `Circle`.
+- An object of type `Shape` is passed as an argument to the parameter `obj`.  So `S` might be `Shape` or, if widening type conversion has occurred, one of the other supertypes of `Shape`. Therefore, we can say that `Shape <: S <: Object`.
+- An `Array<Circle>` has been passed into `Array<? extends S>`.  A widening type conversion occurred here, so we need to find all possible `S` such that `Array<Circle>` <: `Array<? extends S>`.  This is true only if `S` is `Circle`, or another supertype of `Circle`. Therefore, we can say that `Circle <: S <: Object`.
 
-Intersecting the two lists, we know that `S` could be `Shape` or one of its supertypes: `GetAreable` and `Object`.   The most specific type among these is `Shape`.  So, `S` is inferred to be `Shape`.
+Solving these two constraints on `S`, we get the following:
+```
+Shape <: S <: Object 
+```
+ 
+We therefore know that `S` could be `Shape` or one of its supertypes: `GetAreable` and `Object`.   We choose the lower bound, so `S` is inferred to be `Shape`.
 
 Type inferencing can have unexpected consequences.  Let's consider an [older version of `contains` that we wrote](23-generics.md):
 
@@ -89,10 +94,14 @@ A.contains(strArray, 123); // ok!  (huh?)
 
 The code compiles!  Let's go through the type inferencing steps to understand what happened.  Again, we have two parameters:
 
-- `strArray` has the type `String[]` and is passed to `T[]`.  So `T` must be `String` or its superclass `Object`.  The latter is possible since Java array is covariant.
-- `123` is passed as type `T`.  The value is treated as `Integer` and, therefore, `T` must be either `Integer` or its superclass `Object`. 
+- `strArray` has the type `String[]` and is passed to `T[]`.  So `T` must be `String` or its superclass `Object` (i.e. `String <: T <: Object`).  The latter is possible since Java array is covariant.
+- `123` is passed as type `T`.  The value is treated as `Integer` and, therefore, `T` must be either `Integer`,  or its superclasses `Number`, and `Object` (i.e. `Integer <: T <: Object`). 
 
-The intersection between the two is the type `Object`, which is also the most specific type.  So, Java infers `T` to be `Object`.  The code above is equivalent to:
+We take the overlap between these two constraints:
+```
+T <: Object
+```
+Therefore `T` can only have the type `Object`, so Java infers `T` to be `Object`.  The code above is equivalent to:
 
 ```Java
 A.<Object>contains(strArray, 123);
@@ -128,11 +137,66 @@ Shape o = A.findLargest(new Array<Circle>(0));
 
 We have a few more constraints to check:
 
-- Due to target typing, the returning type of `T` must be a subtype of `Shape` (including `Shape`)
-- Due to the bound of the type parameter, `T` must be a subtype of `GetAreable` (including `GetAreable`)
-- `Array<Circle>` must be a subtype of `Array<? extends T>`, so `T` must be a supertype of `Circle` (including `Circle`)
+- Due to target typing, the returning type of `T` must be a subtype of `Shape` (i.e. `T <: Shape`)
+- Due to the bound of the type parameter, `T` must be a subtype of `GetAreable` (i.e. `T <: GetAreable`)
+- `Array<Circle>` must be a subtype of `Array<? extends T>`, so `T` must be a supertype of `Circle` (i.e. `Circle <: T <: Object`)
 
-Intersecting all these possibilities, only two possibilities emerge: `Shape` and `Circle`.  The most specific one is `Circle`, so the call above is equivalent to:
+Intersecting all three of these constraints:
+```
+Circle <: T <: Shape
+```
+
+The lower bound is `Circle` (the lower bound), so the call above is equivalent to:
 ```
 Shape o = A.<Circle>findLargest(new Array<Circle>(0));
 ```
+
+## Further Type Inference Examples
+
+We now return to our `Circle` and `ColoredCircle` classes and the `GetAreable` interface. Recall that `Circle` implements `GetAreable` and `ColoredCircle` inherits from `Circle`.
+
+Now lets consider the following method signature of a generic method `foo`:
+
+```
+public <T extends Circle> T foo(Array<? extends T> array)
+```
+
+Then we consider the following code excerpt:
+
+```
+ColoredCircle c = foo(new Array<GetAreable>());
+```
+
+What does the java compiler infer `T` to be? Lets look at all of the constraints on `T`.
+
+- First we can say that the return type of `foo` must be a subtype of `ColoredCircle`, therefore we can say `T <: ColoredCircle`.
+
+- `T` is also a bounded type parameter, and therefore we also know `T <: Circle`.
+
+- Our method argument is of type `Array<GetAreable>` and must be a subtype of `Array<? extends T>`, so `T` must be a supertype of `GetAreable` (i.e. `GetAreable <: T <: Object`).
+
+We can see that there no overlap of our contraints, `T` can not be both a subtype of `ColoredCircle` and a supertype of `GetAreable` and therefore the Java compiler can not find a type `T`. The Java compiler will throw an error stating the inference variable `T` has incompatible bounds.
+
+Lets consider, one final example using the following method signature of a generic method `bar`:
+
+```
+public <T extends Circle> T bar(Array<? super T> array)
+```
+
+Then we consider the following code excerpt:
+
+```
+GetAreable c = foo(new Array<Circle>());
+```
+
+What does the java compiler infer `T` to be? Again, lets look at all of the constraints on `T`.
+
+- We can say that the return type of `bar` must be a subtype of `GetAreable`, therefore we can say `T <: GetAreable`.
+
+- Our method argument is of type `Array<Circle>` and must be a subtype of `Array<? super T>`, so `T` must be a subtype of `Circle` (i.e. `T <: Circle`).
+
+We take the overlap between these two constraints:
+```
+T <: Circle
+```
+Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the above statement and therefore the compiler does not consider this class during type inference. Therefore `T` can only have the type `Circle`, so Java infers `T` to be `Circle`. 

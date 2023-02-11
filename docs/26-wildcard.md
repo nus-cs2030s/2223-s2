@@ -445,6 +445,7 @@ Recall that in the example above, `instanceof` checks of the run-time type of `a
 ```Java
 a instanceof A<String> 
 ```
+
 since the type argument `String` is not available during run-time due to erasure.  Using `<?>` fits the purpose here because it explicitly communicates to the reader of the code that we are checking that `a` is an instance of `A` with some unknown (erased) type parameter.
 
 Similarly, we can create arrays in the following way:
