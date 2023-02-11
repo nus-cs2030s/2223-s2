@@ -146,7 +146,7 @@ Solving for all three of these constraints:
 Circle <: T <: Shape
 ```
 
-The lower bound is `Circle` (the lower bound), so the call above is equivalent to:
+The lower bound is `Circle`, so the call above is equivalent to:
 ```
 Shape o = A.<Circle>findLargest(new Array<Circle>(0));
 ```
