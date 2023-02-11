@@ -204,7 +204,7 @@ Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the a
 
  [^1]: Due to evolving specifications of software, at the time of compilation, a subtype may not have even been conceived of or written yet!
 
- ## Rules for Type Inference
+## Rules for Type Inference
 
 First, we figure out all of the type constraints on our type parameters, and then we solve these constraints. If no type can satisfy all the constraints, we know that Java will fail to compile. If in resolving the type constraints for a given type parameter `T` we are left with:
 
