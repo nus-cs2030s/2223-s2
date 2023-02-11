@@ -58,7 +58,7 @@ and Java could still infer that `S` should be `Shape`.  The type inference proce
 - An object of type `Shape` is passed as an argument to the parameter `obj`.  So `S` might be `Shape` or, if widening type conversion has occurred, one of the other supertypes of `Shape`. Therefore, we can say that `Shape <: S <: Object`.
 - An `Array<Circle>` has been passed into `Array<? extends S>`.  A widening type conversion occurred here, so we need to find all possible `S` such that `Array<Circle>` <: `Array<? extends S>`.  This is true only if `S` is `Circle`, or another supertype of `Circle`. Therefore, we can say that `Circle <: S <: Object`.
 
-Solving these two constraints on `S`, we get the following:
+Solving for these two constraints on `S`, we get the following:
 ```
 Shape <: S <: Object 
 ```
@@ -141,7 +141,7 @@ We have a few more constraints to check:
 - Due to the bound of the type parameter, `T` must be a subtype of `GetAreable` (i.e. `T <: GetAreable`)
 - `Array<Circle>` must be a subtype of `Array<? extends T>`, so `T` must be a supertype of `Circle` (i.e. `Circle <: T <: Object`)
 
-Intersecting all three of these constraints:
+Solving for all three of these constraints:
 ```
 Circle <: T <: Shape
 ```
