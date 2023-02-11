@@ -203,3 +203,13 @@ T <: Circle
 Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the above statement and therefore the compiler does not consider this class during type inference. Indeed, the compiler cannot be aware[^1] of all subtypes of `Circle` and there could be more than one subtype. Therefore `T` can only have the type `Circle`, so Java infers `T` to be `Circle`. 
 
  [^1]: Due to evolving specifications of software, at the time of compilation, a subtype may not have even been conceived of or written yet!
+
+ ## Rules for Type Inference
+
+First, we figure out all of the type constraints on our type parameters, and then we solve these constraints. If no type can satisfy all the constraints, we know that Java will fail to compile. If in resolving the type constraints for a given type parameter `T` we are left with:
+
+- `Type1 <: T <: Type2`, then `T` is inferred as `Type1`
+- `Type1 <: T`, then `T` is inferred as `Type1`
+- `T <: Type2`, then `T` is inferred as `Type2`
+
+where `Type1` and `Type2` are arbitrary types.
