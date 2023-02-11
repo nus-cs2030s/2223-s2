@@ -199,4 +199,7 @@ Solving for these two constraints:
 ```
 T <: Circle
 ```
-Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the above statement and therefore the compiler does not consider this class during type inference. Therefore `T` can only have the type `Circle`, so Java infers `T` to be `Circle`. 
+
+Whilst `ColoredCircle` is also a subtype of `Circle` it is not included in the above statement and therefore the compiler does not consider this class during type inference. Indeed, the compiler cannot be aware[^1] of all subtypes of `Circle` and there could be more than one subtype. Therefore `T` can only have the type `Circle`, so Java infers `T` to be `Circle`. 
+
+ [^1]: Due to evolving specifications of software, at the time of compilation, a subtype may not have even been conceived of or written yet!
