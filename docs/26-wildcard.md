@@ -379,8 +379,8 @@ Then, the method `qux` is also flexible enough to take in any `Array<T>` as argu
 ```Java
 Array<Circle> ac;
 Array<String> as;
-bar(ac); 
-bar(as); 
+qux(ac); 
+qux(as); 
 ```
 
 Unlike `Array<?>`, however, the compiler does not have the information about the type of the component of the array, and cannot type check for us.  It is up to the programmer to ensure type safety.  For this reason, we must not use raw types.
