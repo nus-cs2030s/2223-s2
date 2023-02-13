@@ -51,6 +51,7 @@ theme:
     - toc.follow
     - toc.integrate
     - content.code.annotate
+    - content.code.copy
   palette:
     primary: deep purple
     accent: deep purple
