@@ -186,7 +186,7 @@ public <T extends Circle> T bar(Array<? super T> array)
 Then we consider the following code excerpt:
 
 ```
-GetAreable c = foo(new Array<Circle>());
+GetAreable c = bar(new Array<Circle>());
 ```
 
 What does the java compiler infer `T` to be? Again, lets look at all of the constraints on `T`.
