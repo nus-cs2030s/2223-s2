@@ -22,8 +22,6 @@ We will call this generic list `SourceList` (after the Source language used in t
 
 This question also uses the `Transformer` and `BooleanCondition` interfaces from Lab 4.  The code for these two classes has been provided for you.
 
-## Background
-
 Remember the `Pair` class from lectures with a `first` and a `second` value. The implementation of `Pair` used in this question is different from that in the lectures, in that it has only one type parameter `T`.  Using this implementation it is possible to create a list using pairs: The generic list `SourceList` is just a `Pair` object, whose second value is either itself a `Pair` object, or an `EmptyList` object.
 
 This chain of pairs constitutes a `SourceList`. Each chain of pairs is terminated with an `EmptyList` object.
