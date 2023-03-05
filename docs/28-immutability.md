@@ -331,3 +331,5 @@ final class Circle {
   }
 }
 ```
+
+That is not to say that the `final` keyword is not important.  It helps accidental re-assignment and in some cases that is sufficient especially if the fields are of primitive type.  Once we have created one immutable class, we can then create other larger immutable classes by only using immutable classes as fields.
