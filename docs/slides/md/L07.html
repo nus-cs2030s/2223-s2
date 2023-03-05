@@ -671,13 +671,13 @@ Can you provide an example for each of the cases above?
 .col50[
 .sssize[
 ```java[copy=nones]
-Lidar lidar = new Lidar("detect child");
-foo(lidar);  // may or may not turn off
-bar(lidar);  // may or may not turn off
-baz(lidar);  // may or may not turn off
+Sensor s = new Sensor("detect child");
+foo(s);  // may or may not turn off
+bar(s);  // may or may not turn off
+baz(s);  // may or may not turn off
 
-// is lidar guaranteed to still be on?
-if (lidar.detect()) {
+// is sensor guaranteed to still be on?
+if (s.detectChild()) {
   dontHitChildren();
 }
 ```
@@ -1125,10 +1125,10 @@ class A {
 ```
 ]
 .mrq.ssize[
-1. .quiz-choice[`x = 1`] .quiz-ans[1] .quiz-hint[YES: non-static to non-static]
-1. .quiz-choice[`y = 1`] .quiz-ans[1] .quiz-hint[YES: non-static to static]
+1. .quiz-choice[`x = 1;`] .quiz-ans[1] .quiz-hint[YES: non-static to non-static]
+1. .quiz-choice[`y = 1;`] .quiz-ans[1] .quiz-hint[YES: non-static to static]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[hpoRDJpdPLNTZdoCFbtKd]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -1196,7 +1196,7 @@ class Main {
 1. .quiz-choice[`(1)`] .quiz-ans[0] .quiz-hint[NO]
 1. .quiz-choice[`(2)`] .quiz-ans[1] .quiz-hint[YES]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[bvxVXh3khlfwGVp55ADnl]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -1262,9 +1262,9 @@ class Main {
 ]
 .mrq.ssize[
 1. .quiz-choice[`(1)`] .quiz-ans[1] .quiz-hint[YES]
-1. .quiz-choice[`(2)`] .quiz-ans[2] .quiz-hint[NO]
+1. .quiz-choice[`(2)`] .quiz-ans[0] .quiz-hint[NO]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[kc2raes4r5WNasmSBxqph]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -1352,7 +1352,7 @@ class A {
 1. .quiz-choice[`x = 1`] .quiz-ans[0] .quiz-hint[NO: static to non-static]
 1. .quiz-choice[`y = 1`] .quiz-ans[1] .quiz-hint[YES: static to static]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[SYmtZ8RnONWHownpV6OhY]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]

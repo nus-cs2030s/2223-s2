@@ -4,7 +4,7 @@ After this unit, students should:
 
 - understand the need for nested class
 - understand the behavior of the different kinds of nested class
-- be able to write nested class
+- be able to write nested classes
 
 So far, we have defined a class only at the "top-level" of our program.  Java allows us to define a class within another class, or within a method.  
 
@@ -30,7 +30,7 @@ Take the `HashMap<K,V>` class for instance.  [The implementation of `HashMap<K,V
 
 !!! note "Example from CS2030S This Semester"
 
-    We can take another example from your labs on shop simulation.  In one of many possible designs, the subclasses of `Event`: `ArrivalEvent`, `DepartureEvent`, etc. are not used anywhere outside of `ShopSimulation`.  They can be safely encapsulated within `ShopSimulation` as inner classes, so that these classes can access the fields within the `ShopSimulation` class, simplifying their implementation.
+    We can take another example from your labs on bank simulation.  In one of many possible designs, the subclasses of `Event`: `ArrivalEvent`, `DepartureEvent`, etc. are not used anywhere outside of `BankSimulation`.  They can be safely encapsulated within `BankSimulation` as inner classes, so that these classes can access the fields within the `BankSimulation` class, simplifying their implementation.
 
 A nested class can be either static or non-static.  Just like static fields and static methods, a _static nested class_ is associated with the containing _class_, NOT an _instance_.  So, it can only access static fields and static methods of the containing class.  A _non-static nested class_, on the other hand, can access all fields and methods of the containing class.  A _non-static nested class_ is also known as an _inner class_.
 

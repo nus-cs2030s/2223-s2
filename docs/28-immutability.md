@@ -2,11 +2,11 @@
 
 After this unit, students should:
 
-- be able to create immutable class
+- be able to create an immutable class
 
-So far in this class, we have been focusing on three ways of dealing with software complexity: by encapsulating and hiding the complexity behind abstraction barriers, by using a language with a strong type system and adhering to the subtyping substitution principle, and applying the abstraction principles and reusing code written as functions, classes, and generics types.
+So far in this course, we have been focusing on three ways of dealing with software complexity: by encapsulating and hiding the complexity behind abstraction barriers, by using a language with a strong type system and adhering to the subtyping substitution principle, and applying the abstraction principles and reusing code written as functions, classes, and generics types.
 
-Another useful strategy to reduce bugs when code complexity increases is to avoid change altogether.  This can be done by making our classes _immutable_. we create an instance of an immutable class, the instance _cannot have any visible changes outside its abstraction barrier_.  This means that every call of the instance's method must behave the same way throughout the lifetime of the instance.
+Another useful strategy to reduce bugs when code complexity increases is to avoid change altogether.  This can be done by making our classes _immutable_. We create an instance of an immutable class, the instance _cannot have any visible changes outside its abstraction barrier_.  This means that every call of the instance's method must behave the same way throughout the lifetime of the instance.
 
 There are many advantages of why we want to make our class immutable when possible.  To start, let's revisit a common bug due to aliasing.  Recall the following example from [Unit 9](09-composition.md),  where we create two circles `c1` and `c2` centered at the origin (0, 0).
 ```Java
@@ -277,9 +277,9 @@ class ImmutableArray<T> {
 
 We will explore concurrent execution of code towards the end of the module, but making our classes immutable goes a long way in reducing bugs related to concurrent execution.  Without going into details here (you will learn the details later), concurrent programming allows multiple threads of code to run in an interleaved fashion, in an arbitrary interleaving order.   If we have complex code that is difficult to debug to begin with, imagine having code where we have to ensure its correctness regardless of how the execution interleaves!  Immutability helps us ensure that regardless of how the code interleaves, our objects remain unchanged.
 
-## Consideration
+## Final &ne; Immutable
 
-When creating an immutable class, we need to be careful between the keywords that helps us avoid accidentally making things easily mutable and the actual concept of immutable class.  For instance, it is _insufficient_ to simply declare all fields with `final` keywords.  Just because we cannot accidentally update the field, does not mean that the field is immutable.  Consider the same `Circle` above but with a getter for the center point and now imagine that the `Point` is mutable.
+When creating an immutable class, we need to be careful to distinguish between the keywords that helps us avoid accidentally making things easily mutable and the actual concept of immutable class.  For instance, it is _insufficient_ to simply declare all fields with `final` keywords.  Just because we cannot accidentally update the field, does not mean that the field is immutable.  Consider the same `Circle` above but with a getter for the center point and now imagine that the `Point` is mutable.
 
 ```java
 final class Circle {
