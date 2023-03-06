@@ -325,63 +325,6 @@ p ==> (0.0, 0.0)
 .col50[
 ##### Point
 .xssize[
-```java[name=Point_v2.java|show=1-13,19|lite=10-12]
-class Point {
-  private final double x;
-  private final double y;
-
-  public Point(double x, double y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  public Point moveTo(double x, double y) {
-    Point pt = new Point(x, y);
-    return pt;
-  }
-
-  @Override
-  public String toString() {
-    return "(" + this.x + ", " + this.y + ")";
-  }
-}
-```
-]
-]
-.col50[
-##### Problem ?
-.sssize[
-```jshell[copy=nones]
-jshell> /open Point.java
-jshell> Point p = new Point(0, 0)
-p ==> (0.0, 0.0)
-jshell> p.moveTo(1, 1)
-$7 ==> (1.0, 1.0)
-jshell> p
-p ==> (0.0, 0.0)
-```
-]
-]
-]
-
----
-
-### Immutable Class
-
-.lc[
-### Motivation
-### Definition
-### Immutable Point
-#### - Attempt #0
-#### - Attempt #1
-#### - Attempt #2
-]
-.rc[
-### Towards Immutable Point
-#### Attempt #2
-.col50[
-##### Point
-.xssize[
 ```java[name=Point_v2.java|show=1-13,19]
 class Point {
   private final double x;
