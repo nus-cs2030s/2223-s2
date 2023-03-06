@@ -954,10 +954,10 @@ What if our class is not fine-grained enough?
 .card.bg-y[
 ##### Possible Design
 .content.tight[
-Subclasses of `Event` .mnote[(e.g., `ArrivalEvent`, `DepartureEvent`, etc)] are not used outside `ShopSimulation`.
+Subclasses of `Event` .mnote[(e.g., `ArrivalEvent`, `DepartureEvent`, etc)] are not used outside `BankSimulation`.
 <br><br>
 
-Why not just put it as a class inside `ShopSimulation`?
+Why not just put it as a class inside `BankSimulation`?
 ]
 ]
 ]
@@ -1282,7 +1282,7 @@ class A {
   private int x;
   static int y;
   
-  class B {
+  static class B { // static
     void foo() {
       x = 1;
       y = 1;
@@ -2082,7 +2082,7 @@ void sortNames(List<String> names) {
 ```java[lite=3,10]
 void sortNames(List<String> names) {
 
-  Comparator<String> cmp = Comparator<String> {
+  Comparator<String> cmp = Comparator<String>() {
     @Override
     public int compare(String s1, String s2) {
       return s1.length() - s2.length();
@@ -2133,7 +2133,7 @@ void sortNames(List<String> names) {
 ```java[lite=3,10]
 void sortNames(List<String> names) {
 
-  names.sort(Comparator<String> {
+  names.sort(Comparator<String>() {
     @Override
     public int compare(String s1, String s2) {
       return s1.length() - s2.length();
