@@ -8,7 +8,7 @@
 ## Prerequisite:
 
 - Caught up to Unit 29 of Lecture Notes
-- Familiar with CS2030S Java style guide
+- Familiar with the CS2030S Java style guide
 
 This is a follow-up from Lab 4.  In Lab 4, we have constructed a generic class `Box<T>`, which is a container for an item of type `T`.  Beyond being an exercise for teaching about generics, `Box<T>` is not a very useful type.  In Lab 5 and 6, we are going to modify `Box<T>` into two more useful and general classes.  We are going to build our own Java packages using these useful classes.
 
@@ -63,7 +63,7 @@ jshell> c = new Consumer<>() {
    ...> }
 ```
 
-## Call me Maybe<T>
+## Call Me `Maybe<T>`
 
 Now, we are going to implement a type called `Maybe<T>` in the `cs2030s.fp` package.  Our `Maybe<T>` is an _option type_, a common abstraction in programming languages (`java.util.Optional` in Java, `option` in Scala, `Maybe` in Haskell, `Nullable<T>` in C#, etc) that is a wrapper around a value that might be missing.  In other words, it represents either _some_ value, or _none_.
 
@@ -183,7 +183,7 @@ You can test your code by running the `Test1.java` provided.  The following shou
 ```
 $ javac -Xlint:rawtypes Test1.java
 $ java Test1
-$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/*.java
 ```
 
 ### Filter and Map (again!)
@@ -285,7 +285,7 @@ You can test your code by running the `Test2.java` provided.  The following shou
 ```
 $ javac -Xlint:rawtypes Test2.java
 $ java Test2
-$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/*.java
 ```
 
 Remember to make your methods as flexible as it could be in the type that it accepts.
@@ -319,7 +319,7 @@ You can test your code by running the `Test3.java` provided.  The following shou
 ```
 $ javac -Xlint:rawtypes Test3.java
 $ java Test3
-$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/*.java
 ```
 
 
@@ -372,7 +372,7 @@ You can test your code by running the `Test4.java` provided.  The following shou
 ```
 $ javac -Xlint:rawtypes Test4.java
 $ java Test4
-$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/*.java
 ```
 
 ## Using `Maybe`
@@ -392,6 +392,14 @@ Your final task is to modify `getGrade` so that it uses `Maybe<T>` instead:
 - Declare and initialize two `Transformer` instances using anonymous classes.  
 - Use the two `Transformers`, `Maybe::of`, `Maybe::flatMap`, and `Maybe::orElse` to achieve the same functionality as the given `getGrade` in a _single return statement_.   In other words, your `getGrade` should consists of three Java statements: two to create two Transformers, and one `return` statement.   The skeleton has been given.
 - Your code should not have any more conditional statements or references to `null`.
+
+Compile your edited `Lab5` class.  The following should compile without errors or warnings.  Make sure your code follows the CS2030S Java style.
+
+```
+$ javac -Xlint:rawtypes Lab5.java
+$ java Lab5
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml Lab5.java
+```
 
 ## Files
 
