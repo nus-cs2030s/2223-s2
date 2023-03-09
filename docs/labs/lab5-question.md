@@ -57,7 +57,7 @@ jshell> Producer<String> p;
 jshell> p = new Producer<>() {
    ...>   public String produce() { return ""; }
    ...> }
-jshell> Consume<Boolean> c;
+jshell> Consumer<Boolean> c;
 jshell> c = new Consumer<>() {
    ...>   public void consume(Boolean b) { }
    ...> }
