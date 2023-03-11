@@ -196,10 +196,38 @@ Will `sort` sorts in ascending order or descending order?
 
 To avoid confusing code like this, Java only allows a local class to access variables that are explicitly declared `final` or implicitly final (or _effectively_ final).  An implicitly final variable cannot be re-assigned after initialization.  Therefore, Java saves us from such a hair-pulling situation and disallows such code -- `ascendingOrder` is not effectively final so the code above does not compile.
 
+
+**Breaking the Limitation of Effectively `final`.** &nbsp;&nbsp; The limitation of effectively final only happen because the value is of a primitive type.  So, if we captures the value and forbids re-assigning the value, there is nothing we can do to change primitive value.
+
+On the other hand, reference type can be mutated. So if we use our own implementation of `Bool` class below instead of `boolean` primitive type, we can modify the code above to allow the "value" in variable `ascendingOrder` to be changed. However, this change is via mutation and not re-assignment to the variable.
+
+
+```Java
+void sortNames(List<String> names) {
+  Bool ascendingOrder = new Bool(true);
+  class NameComparator implements Comparator<String> {
+    public int compare(String s1, String s2) {
+      if (ascendingOrder.val)
+        return s1.length() - s2.length();
+      else
+        return s2.length() - s1.length();
+    }
+  }
+
+  ascendingOrder.val = false;
+  names.sort(new NameComparator());
+}
+class Bool {
+  boolean val;
+}
+```
+
+The code above does compile but now we are no longer save from such a hair-pulling situation.  So please exercise this with extreme caution.
+
 !!! note "Variable Capture in Javascript"
-    Those of you who did CS1101S or otherwise familiar with Javascript might want to note that this is different from Javascript, which does not enforce the final/effectively final restriction in variable captures.
+    Those of you who did CS1101S or otherwise familiar with Javascript might want to note that this is different from Javascript, which does not enforce the final/effectively final restriction in variable captures.  This is because there is no concept of primitive value in Javascript.
     
-    This may be done in Java if we use mutable reference type.  Although we cannot re-assign the value of teh variable, we can mutate it to have a different value.
+    Every single primitive type is automatically boxed in Javascript. The unboxed variant is not available to the programmer directly.  So, if we write `x = 1` in Javascript, the value `1` is boxed and put into the heap.  Then, the variable `x` in the stack points to this box in the heap unlike Java primitive type.
 
 ### Anonymous Class
 
