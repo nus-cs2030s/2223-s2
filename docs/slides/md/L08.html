@@ -15,6 +15,56 @@ class: bottom, titles
 
 ---
 
+name: Errata
+class: middle, subtitles
+
+# Errata
+
+---
+
+### Errata
+
+.lc[
+### ImmutableArray
+]
+.rc[
+### ImmutableArray
+#### Code
+.col65[
+.xsssize[
+```java[name=ImmutableArray_v1.java|lite=8-14]
+class ImmutableArray<T> {
+  private final T[] array;
+  private final int start;
+  private final int end;
+  
+  @SafeVarargs
+  public static <T> ImmutableArray<T> of(T... items) {
+    // We need to copy to ensure that it is truly immutable
+    @SuppressWarnings("unchecked");
+    T[] arr = (T[]) new Object[items.length];
+    for (int i=0; i<items.length; i++) {
+      arr[i] = items[i];
+    }
+    return new ImmutableArray<>(arr);
+  }
+    :
+}
+```
+]
+]
+.col35[
+.card.bg-y[
+##### Notes
+.content.tight[
+To truly make it immutable, we need to ___copy___ the `items` in the factory method `of`.  Otherwise, there may still mutability.
+]
+]
+]
+]
+
+---
+
 name: Lambda
 class: middle, subtitles
 
@@ -927,7 +977,7 @@ class Point {
 .sssize[
 ```java[copy=nones]
 Point origin = new Point(0, 0);
-Transformer<Point, Double> dist =
+Function<Point, Double> dist =
   p -> origin.distance(p);
   ‎
 // Recap, 'origin' needs to be
@@ -941,7 +991,7 @@ Transformer<Point, Double> dist =
 ##### Method Reference
 ```java[copy=nones]
 Point origin = new Point(0, 0);
-Transformer<Point, Double> dist = origin::distance;
+Function<Point, Double> dist = origin::distance;
 ```
 ]
 
