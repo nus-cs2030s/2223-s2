@@ -755,6 +755,8 @@ class ImmutableArray<T> {
 #### Enable Safe Sharing of Internals
 ##### Concept
 ![Concept 01](img/07_Sharing_01.png)
+
+.note[This is _slightly_ different from the notes. In this case, we ___exclude___ the end point.]
 ]
 
 ---
@@ -776,6 +778,8 @@ class ImmutableArray<T> {
 #### Enable Safe Sharing of Internals
 ##### Concept
 ![Concept 02](img/07_Sharing_02.png)
+
+.note[This is _slightly_ different from the notes. In this case, we ___exclude___ the end point.]
 ]
 
 ---
@@ -797,6 +801,8 @@ class ImmutableArray<T> {
 #### Enable Safe Sharing of Internals
 ##### Concept
 ![Concept 03](img/07_Sharing_03.png)
+
+.note[This is _slightly_ different from the notes. In this case, we ___exclude___ the end point.]
 ]
 
 ---
@@ -847,6 +853,14 @@ class ImmutableArray<T> {
   }
 }
 ```
+]
+]
+.col35[
+.card.bg-y[
+##### Notes
+.content.tight[
+To truly make it immutable, we need to ___copy___ the `items` in the factory method `of`.  Otherwise, there may still mutability.
+]
 ]
 ]
 ]
@@ -1550,6 +1564,14 @@ c.g();
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_01.png)
 ]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
+]
 
 ---
 
@@ -1616,6 +1638,14 @@ c.g();
 ]
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_02.png)
+]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
 ]
 
 ---
@@ -1684,6 +1714,14 @@ c.g();
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_03.png)
 ]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
+]
 
 ---
 
@@ -1750,6 +1788,14 @@ c.g();
 ]
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_01.png)
+]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
 ]
 
 ---
@@ -1818,6 +1864,14 @@ c.g();
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_04.png)
 ]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
+]
 
 ---
 
@@ -1884,6 +1938,14 @@ c.g();
 ]
 .abs.lt65.wt33.top3[
 ![Capture](img/07_Capture_05.png)
+]
+.abs.lt1.wt19.bot2.fc[
+.card.bg-y[
+##### Notes
+.content.tight[
+The dashed line separates "_captured variables_" from fields. You cannot access captured variables using the dot notation .mnote[(e.g., `b.y`)].
+]
+]
 ]
 
 ---

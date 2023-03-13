@@ -139,7 +139,7 @@ int add(int i, int j) {
 1. .quiz-choice[`incr`] .quiz-ans[0] .quiz-hint[NO: return value depends on `this.count`]
 1. .quiz-choice[`add`] .quiz-ans[1] .quiz-hint[YES: overflow is not an error!]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[i3cBY7GTIT8lMKvtldf1L]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -187,7 +187,7 @@ int square(int i) {
 1. .quiz-choice[`div`] .quiz-ans[0] .quiz-hint[NO: cannot divide by zero]
 1. .quiz-choice[`square`] .quiz-ans[1] .quiz-hint[YES: overflow is not an error!]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[U7PhfLRuyCrK2pSaaZCgD]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -235,7 +235,7 @@ void incrCount(int i) {
 1. .quiz-choice[`dice`] .quiz-ans[0] .quiz-hint[NO: non-deterministic]
 1. .quiz-choice[`incrCount`] .quiz-ans[0] .quiz-hint[NO: no return value + side effect]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[OX76IXAI7F7Wx0DP1lfuj]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -273,7 +273,7 @@ A programming language is said to have __first-class functions__ when functions 
 1. .quiz-choice[Return as return value] .quiz-ans[0] .quiz-hint[NO: a variable can be used as return value]
 1. .quiz-choice[Put into array] .quiz-ans[0] .quiz-hint[NO: a variable can be put into array of correct type]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[PwZTCWBCTiCCgGhO4f3iS]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -479,12 +479,12 @@ interface Fun<T, R> {
 ]
 
 .mrq.ssize[
-1. .quiz-choice[`Fun<T1, R extends <Fun<T2, R2>>`] .quiz-ans[0] .quiz-hint[NO: what are `T2` and `R2`?]
+1. .quiz-choice[`Fun<T1, R extends <Fun<T2, R2>>>`] .quiz-ans[0] .quiz-hint[NO: what are `T2` and `R2`?]
 1. .quiz-choice[`Fun<T1, Fun<T2, R>>`] .quiz-ans[0] .quiz-hint[NO: what are `T2` and `R`?]
 1. .quiz-choice[`Fun<T1, T2, R>`] .quiz-ans[1] .quiz-hint[YES: all three are type parameters]
 1. .quiz-choice[`Fun<<T1, T2>, R>`] .quiz-ans[0] .quiz-hint[NO: this is a syntax error]
 
-.quizzes-poll[DtLMkhMchR6lWjtYnQSE0]
+.quizzes-poll[qxG1xiwO2gWudIXa4MARQ]
 .quizzes-time[30]
 .quizzes-qr[img/QR.png]
 ]
@@ -552,6 +552,9 @@ A __lambda expression__ is an _anonymous_ function.
 ]
 ]
 ]
+.abs.lt80.wt19.top3[
+![Lambda](img/08_Lambda.jpg)
+]
 
 ---
 
@@ -611,6 +614,9 @@ Function<Integer, Integer> f =
 ]
 ]
 ]
+.abs.lt80.wt19.top3[
+![Lambda](img/08_Lambda.jpg)
+]
 
 ---
 
@@ -663,6 +669,9 @@ param -> expr
 ]
 ]
 ]
+.abs.lt80.wt19.top3[
+![Lambda](img/08_Lambda.jpg)
+]
 
 ---
 
@@ -688,6 +697,9 @@ param -> expr
 ]
 >
 > <br>
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---
@@ -716,6 +728,9 @@ param -> expr
 ]
 >
 > <br><br>
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---
@@ -746,6 +761,9 @@ param -> expr
 ]
 >
 > <br><br><br>
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---
@@ -779,6 +797,9 @@ param -> expr
 > <br><br><br>
 > Is there a limit?
 > Can we not make a _general_ interface for all possible number of parameters?
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---
@@ -821,6 +842,9 @@ Function<???, ???> f = x -> ???;
 f.apply(1); // then what?
 ```
 ]
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---
@@ -865,6 +889,9 @@ f.apply(1).apply(2);
 ]
 
 .note[The lambda expression is read from right-to-left so it is equivalent to `x -> (y -> (x + y))`.]
+]
+.abs.lt80.wt19.top3[
+![Curry](img/08_Curry.jpg)
 ]
 
 ---

@@ -257,7 +257,13 @@ class ImmutableArray<T> {
 
   @SafeVarargs
   public static <T> ImmutableArray<T> of(T... items) {
-    return new ImmutableArray<>(items, 0, items.length-1);
+    // We need to copy to ensure that it is truly immutable
+    @SuppressWarnings("unchecked");
+    T[] arr = (T[]) new Object[items.length];
+    for (int i=0; i<items.length; i++) {
+      arr[i] = items[i];
+    }
+    return new ImmutableArray<>(arr, 0, items.length-1);
   }
 
   private ImmutableArray(T[] a, int start, int end) {

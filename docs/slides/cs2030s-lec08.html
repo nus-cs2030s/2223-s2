@@ -67,14 +67,10 @@
         ]});
       };
       
+      const qna_mod     = '640558ddf5bacc61ab115b97';
+      const qna_topic   = '640e938e26f02b480b878884';
       
-      <!-- ace.config.set('basePath',"https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.5/"); -->
-      
-      <!-- const qna_mod     = '62d9031f5d945563605ef420'; -->
-      <!-- const qna_topic   = '62d903285d945563605ef42d'; -->
-      
-      <!-- window.$itools.push('question', 'Question', window.$itools.tool.qna(qna_mod, qna_topic, 125)); -->
-      window.$itools.push('terminal', 'Terminal', window.$itools.tool.dbfiddle('', 125));
+      window.$itools.push('question', 'Question', window.$itools.tool.qna(qna_mod, qna_topic, 125));
       
       var slideshow = remark.create({
         base: '',
