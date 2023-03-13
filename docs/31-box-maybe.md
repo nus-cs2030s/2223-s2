@@ -55,18 +55,18 @@ Let's now look at `Box<T>` in a slightly different light.  Let's rename it to `M
 
 Recall that we wish to write a program that is as close to pure mathematical functions as possible, a mathematical function always has a well-defined domain and codomain.  If we have a method that looks this like this:
 ```Java
-Counter c = shop.findCounter();
+Counter c = bank.findCounter();
 ```
 
-Then `findCounter` is mapping from the domain on shops or counters.  However, if we implement `findCounter` such that it returns `null` if no counter is available, then `findCounter` is not a function anymore.  The return value `null` is not a counter, as we cannot do things that we can normally do on counters to it.  So `findCounter` now maps to a value outside its codomain!  This violation of the purity of function adds complications to our code, as we now have to specifically filter out `null` value, and is a common source of bugs.
+Then `findCounter` is mapping from the domain on banks or counters.  However, if we implement `findCounter` such that it returns `null` if no counter is available, then `findCounter` is not a function anymore.  The return value `null` is not a counter, as we cannot do things that we can normally do on counters to it.  So `findCounter` now maps to a value outside its codomain!  This violation of the purity of function adds complications to our code, as we now have to specifically filter out `null` value, and is a common source of bugs.
 
 One way to fix this is to have a special counter (say, `class NullCounter extends Counter`) that is returned whenever no counter is available.  This way, our `findCounter` remains a pure function.  But this is not a general solution.  If we adopt this solution, everywhere we return `null` in place of a non-null instance we have to create a special subclass.
 
 Another way, that is more general, is to expand the codomain of the function to include `null`, and wrap both `null` and `Counter` under a type called `Maybe<Counter>`.  We make `findCounter` returns a `Maybe<Counter>` instead
 ```Java
-Maybe<Counter> c = shop.findCounter();
+Maybe<Counter> c = bank.findCounter();
 ```
 
-With this design, `findCounter` is now a function with the domain `Shop` mapped to the codomain `Maybe<Counter>`, and it is pure.
+With this design, `findCounter` is now a function with the domain `Bank` mapped to the codomain `Maybe<Counter>`, and it is pure.
 
 Another way to view the `Maybe<T>` class is that it internalizes all the checks for `null` on the client's behalf.  `Maybe<T>` ensures that if `null` represents a missing value, then the semantics of this missing value is preserved throughout the chain of `map` and `filter` operations.  Within its implementation, `Maybe<T>` do the right thing when the value is missing to prevent us from encountering `NullPointerException`.  There is a check for `null` when needed, internally, within `Maybe<T>`.  This internalization removes the burden of checking for `null` on the programmer and removes the possibility of run-time crashes due to missing `null` checks.
