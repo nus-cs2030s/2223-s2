@@ -49,6 +49,7 @@ nav:
        - Plugins: 'vim/plugins.md'
   - Java Guide: 
        - Coding Style: 'style.md'
+       - JavaDoc : 'javadoc.md'
 theme: 
   name: material
   features: 
