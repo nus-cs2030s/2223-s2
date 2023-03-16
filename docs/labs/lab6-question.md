@@ -17,7 +17,7 @@ The following functional interfaces are already provided:
 - `cs2030s.fp.BooleanCondition`
 - `cs2030s.fp.Producer`
 
-Copy your implementation of `cs2030s.fp.Maybe` over before you get started with Lab 6.  A skeleton for `Lazy<T>` as well as a wrongly-implemented copy of `LazyList.java` is provided.
+Copy your implementation of `cs2030s.fp.Maybe` {++(as well as the interface `cs2030s.fp.Consumer`)++} from Lab 5 over before you get started with Lab 6.  A skeleton for `Lazy<T>` as well as a wrongly-implemented copy of `LazyList.java` is provided.
 
 The files `Test1.java`, `Test2.java`, etc., as well as `CS2030STest.java`, are provided for testing.  You can edit them to add your test cases, but they will not be submitted.
 
