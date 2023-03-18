@@ -102,9 +102,9 @@ While other languages such as Scala as native support for lazy variables, Java d
 
 ```Java
 class Lazy<T> {
-  T value;
-  boolean evaluated;
-  Producer<T> producer;
+  private T value;
+  private boolean evaluated;
+  private Producer<T> producer;
 
   public Lazy(Producer<T> producer) {
     evaluated = false;
