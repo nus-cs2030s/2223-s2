@@ -26,6 +26,13 @@ class EagerList<T> {
   public EagerList<T> tail() { // same here, method name
     return this.tail;          // is the same as field name
   }
+  
+  public T get(int n) {
+    if (n == 0) {
+      return this.head();          // be careful!
+    }                              //   use the methods
+    return this.tail().get(n - 1); //   instead of fields
+  }
 
   public static <T> EagerList<T> empty() {
     @SuppressWarnings("unchecked")
@@ -45,6 +52,11 @@ class EagerList<T> {
 
     @Override
     public EagerList<Object> tail() {
+      throw new java.util.NoSuchElementException();
+    }
+  
+    @Override
+    public Object get(int n) {
       throw new java.util.NoSuchElementException();
     }
   }
@@ -110,6 +122,7 @@ EagerList<Integer> l = EagerList.iterate(1, i -> i < 10, i -> i + 1) // [1, ...,
 l.head();        // 6
 l.tail().head(); // 12
 l.tail().tail().head(); // 18
+l.get(2);               // 18
 ```
 
 ## An Infinite List
@@ -134,12 +147,19 @@ class InfiniteList<T> {
     this.tail = tail;
   }
 
-  public T head() {
-    return this.head.produce();
+  public T head() {             // be careful, the method name
+    return this.head.produce(); // is the same as the field name
   }
 
-  public InfiniteList<T> tail() {
-    return this.tail.produce();
+  public InfiniteList<T> tail() { // same here, method name
+    return this.tail.produce();   // is the same as field name
+  }
+  
+  public T get(int n) {
+    if (n == 0) {
+      return this.head();          // be careful!
+    }                              //   use the methods
+    return this.tail().get(n - 1); //   instead of fields
   }
 }
 ```
@@ -156,9 +176,9 @@ We now change the `generate` method to be lazy, by passing in a producer instead
 
 We can change `iterate` as well to only iterate through and generate the next element when we need it.  Note that we no longer need to provide the terminating condition `cond`.
 ```Java
-public static <T> InfiniteList<T> iterate(T init, Transformer<T, T> next) {
+  public static <T> InfiniteList<T> iterate(T init, Transformer<T, T> next) {
     return new InfiniteList<T>(() -> init,
-      () -> iterate(next.transform(init), next));
+        () -> iterate(next.transform(init), next));
   }
 ```
 
@@ -168,8 +188,10 @@ Here are some examples of how to use the two methods above:
 InfiniteList<Integer> ones = InfiniteList.generate(() -> 1); // 1, 1, 1, 1, ....
 InfiniteList<Integer> evens = InfiniteList.iterate(0, x -> x + 2); // 0, 2, 4, 6, ...
 evens.head(); // -> 0
+evens.get(5); // -> 10
 evens = evens.tail(); 
 evens.head(); // -> 2
+evens.get(6); // -> 14
 ```
 
 Both the lists `ones` and `evens` are infinitely long, but due to lazy evaluation, we do not generate all the elements in advance, but only when an element is needed.  
@@ -223,12 +245,19 @@ class InfiniteList<T> {
     this.tail = tail;
   }
 
-  public T head() {
-    return this.head.produce();
+  public T head() {             // be careful, the method name
+    return this.head.produce(); // is the same as the field name
   }
 
-  public InfiniteList<T> tail() {
-    return this.tail.produce();
+  public InfiniteList<T> tail() { // same here, method name
+    return this.tail.produce();   // is the same as field name
+  }
+  
+  public T get(int n) {
+    if (n == 0) {
+      return this.head();          // be careful!
+    }                              //   use the methods
+    return this.tail().get(n - 1); //   instead of fields
   }
 
   public <R> InfiniteList<R> map(Transformer<? super T, ? extends R> mapper) {
