@@ -15,6 +15,282 @@ class: bottom, titles
 
 ---
 
+name: Announcement
+class: middle, subtitles
+
+# Announcement
+
+---
+
+### Announcement
+
+.lc[
+### Catch-Up
+]
+.rc[
+### Catch-Up Session III
+.col20[
+- __Date__
+- __Time__
+- __Zoom__<br><br>
+- __Pigeonhole__
+]
+.col80.nol.deindent[
+- 25 March 2023 .lnote[(Saturday)]
+- 10:00 - 12:00
+- https://nus-sg.zoom.us/j/87404907419?pwd=cjFJbXc2R2I0S3BBSEhJakZZUU9sQT09
+- https://pigeonhole.at/FINALLYIMMUTABLE
+]
+]
+
+---
+
+### Announcement
+
+.lc[
+### Catch-Up
+### PE2 Conflict
+]
+.rc[
+### PE2 Timing Conflict
+> If you find timing conflict with your assigend PE2 session
+
+.col20[
+- __Survey__
+- __Deadline__
+]
+.col80.nol.deindent[
+- https://canvas.nus.edu.sg/courses/38513/quizzes/14350
+- Wednesday, 22 March 2023 .lnote[(23:59)]
+]
+]
+
+---
+
+### Announcement
+
+.lc[
+### Catch-Up
+### PE2 Conflict
+### Midterm Regrade
+]
+.rc[
+### Midterm Regrade Request
+> If you would like us to have a second look at your midterm script
+
+.col20[
+- __Survey__
+- __Deadline__
+]
+.col80.nol.deindent[
+- https://canvas.nus.edu.sg/courses/38513/quizzes/14888
+- Friday, 24 March 2023 .lnote[(23:59)]
+]
+]
+
+---
+
+name: Optimization
+class: middle, subtitles
+
+# Optimization
+
+---
+
+### Optimization
+
+.lc[
+### Lexical this
+#### - Lambda
+]
+.rc[
+### Lexical this
+.col60[
+#### Lambda
+.sssize[
+```java[lite=9]
+class A {
+  int x;
+  
+  public A (int x) {
+    this.x = x;
+  }
+  
+  public Integer get() {
+    Producer<Integer> prod = () -> this.x;
+    return prod.produce();
+  }
+}
+```
+]
+]
+.col40[
+#### Problem?
+.qns[
+> ##### Question
+> What is the expected output of the following code fragment?
+.sssize[
+```java
+A a = new A(3);
+int x = a.get();
+System.out.println(x);
+```
+]
+]
+]
+]
+
+---
+
+### Optimization
+
+.lc[
+### Lexical this
+#### - Lambda
+#### - Anonymous
+]
+.rc[
+### Lexical this
+.col60[
+#### Anonymous Class
+.sssize[
+```java[lite=11]
+class A {
+  int x;
+  
+  public A (int x) {
+    this.x = x;
+  }
+  
+  public Integer get() {
+    Producer<Integer> prod = new Producer<>() {
+      public Integer produce() {
+        return this.x;
+      }
+    }
+    return prod.produce();
+  }
+}
+```
+]
+]
+.col40[
+#### Problem?
+.qns[
+> ##### Question
+> What is the expected output of the following code fragment?
+.sssize[
+```java
+A a = new A(3);
+int x = a.get();
+System.out.println(x);
+```
+]
+]
+]
+]
+
+---
+
+### Optimization
+
+.lc[
+### Lexical this
+### final
+#### - Capture
+]
+.rc[
+### final
+.col60[
+#### Class A
+.sssize[
+```java
+class A {
+  int x;
+  
+  public A (int x) {
+    this.x = x;
+  }
+  
+  public Integer get() {
+    Producer<Integer> prod = () -> this.x;
+    return prod.produce();
+  }
+}
+```
+]
+]
+.col40[
+#### Variable Capture
+.sssize[
+```java[lite=2-3]
+A a = new A(3);
+Producer<Integer> getter =
+    () -> a.get();
+int x = getter.produce();
+System.out.println(x);
+```
+```java
+a = new A(4);
+x = getter.produce();
+System.out.println(x);
+```
+]
+]
+]
+
+---
+
+### Optimization
+
+.lc[
+### Lexical this
+### final
+#### - Capture
+#### - Reference
+]
+.rc[
+### final
+.col60[
+#### Class A
+.sssize[
+```java
+class A {
+  int x;
+  
+  public A (int x) {
+    this.x = x;
+  }
+  
+  public Integer get() {
+    Producer<Integer> prod = () -> this.x;
+    return prod.produce();
+  }
+}
+```
+]
+]
+.col40[
+#### Method Reference
+.sssize[
+```java[lite=2-3]
+A a = new A(3);
+Producer<Integer> getter =
+    a::get;
+int x = getter.produce();
+System.out.println(x);
+```
+```java
+a = new A(4);
+x = getter.produce();
+System.out.println(x);
+```
+]
+]
+]
+
+---
+
 name: Infinite_List
 class: middle, subtitles
 

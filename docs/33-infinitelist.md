@@ -6,13 +6,13 @@ After this unit, students should understand:
 
 ## Preliminary: An Eagerly Evaluated List
 
-Let's consider first how we can represent an eagerly evaluated, finite list, recursively.  A simple way is to treat the list as a recursive structure, containing a `head` and a `tail`, with the `tail` being a list itself.  We have a special terminating list called `EmptyList` that we use to terminate the EagerList.
+Let's consider first how we can represent an eagerly evaluated, finite list, recursively.  A simple way is to treat the list as a recursive structure, containing a `head` and a `tail`, with the `tail` being a list itself.  We have a special terminating list called `Sentinel` that we use to terminate the EagerList.
 
 ```Java
 class EagerList<T> {
   private final T head;
   private final EagerList<T> tail;
-  private static EagerList<?> EMPTY = new EmptyList(); 
+  private static EagerList<?> EMPTY = new Sentinel(); 
 
   public EagerList(T head, EagerList<T> tail) {
     this.head = head;
@@ -33,8 +33,8 @@ class EagerList<T> {
     return temp;
   }
 
-  private static class EmptyList extends EagerList<Object> {
-    EmptyList() {
+  private static class Sentinel extends EagerList<Object> {
+    Sentinel() {
       super(null, null);
     }
 
@@ -89,7 +89,7 @@ We can also provide the `filter` method, that takes in lambda expression as a pa
   }
 ```
 
-We have the special `EmptyList` cases,
+We have the special `Sentinel` cases,
 ```Java
   @Override
   public <R> EagerList<R> map(Transformer<? super Object, ? extends R> mapper) {
@@ -104,7 +104,7 @@ We have the special `EmptyList` cases,
 
 The resulting list can be used this way:
 ```Java
-EagerList<Integer> l = EagerList.iterate(1, i -> i < 10, i -> i + 1) // [1, ... 9]
+EagerList<Integer> l = EagerList.iterate(1, i -> i < 10, i -> i + 1) // [1, ..., 9]
     .filter(i -> i % 3 == 0)  // [3, 6, 9]
     .map(i -> i * 2);  // [6, 12, 18]
 l.head();        // 6
@@ -117,7 +117,7 @@ l.tail().tail().head(); // 18
 Lazy evaluation allows us to delay the computation that produces data until the data is needed.  This powerful concept enables us to build computationally-efficient data structures.  We will focus on building a list with a possibly infinite number of elements -- something that couldn't be done without lazy evaluation.  Any eager-evaluation-based solution will just run in an infinite loop if the list is infinitely long.  For instance,
 
 ```Java
-EagerList.iterate(1, i -> i > 0, i -> i + 0); // infinite loop
+EagerList.iterate("", s -> s.length() >= 0, s -> s + "a"); // infinite loop
 ```
 
 Just as we saw in the previous unit, we can delay a computation by using the `Producer` functional interface (or anything equivalent).  Instead of doing `compute()` which is immediately evaluated when executed, we replace it with a `Producer` `() -> compute()`, which "stores" the computation in an instance of `Producer`, and we only call it when we invoke the `produce()` method.
@@ -126,8 +126,8 @@ Instead of storing the head and tail of the list, we can think of an infinite li
 
 ```Java
 class InfiniteList<T> {
-  private Producer<T> head;
-  private Producer<InfiniteList<T>> tail;
+  private final Producer<T> head;
+  private final Producer<InfiniteList<T>> tail;
 
   public InfiniteList(Producer<T> head, Producer<InfiniteList<T>> tail) {
     this.head = head;
@@ -144,7 +144,7 @@ class InfiniteList<T> {
 }
 ```
 
-Note that we don't need an `EmptyList` for now.  We will need it if we have operations that truncate the list to a finite one, but let's not worry about it yet.
+Note that we don't need an `Sentinel` for now.  We will need it if we have operations that truncate the list to a finite one, but let's not worry about it yet.
 
 We now change the `generate` method to be lazy, by passing in a producer instead.  We no longer need to pass in the size, since the list can be infinitely long!
 ```Java
@@ -205,8 +205,8 @@ It is worthwhile to trace through the code and understand how `head()` works.  F
 
 ```Java
 class InfiniteList<T> {
-  private Producer<T> head;
-  private Producer<InfiniteList<T>> tail;
+  private final Producer<T> head;
+  private final Producer<InfiniteList<T>> tail;
 
   public static <T> InfiniteList<T> generate(Producer<T> producer) {
     return new InfiniteList<T>(producer,
