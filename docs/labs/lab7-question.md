@@ -14,6 +14,7 @@
 ## Files
 
 The following functional interfaces are already provided:
+
 - `cs2030s.fp.Combiner`
 - `cs2030s.fp.Transformer`
 - `cs2030s.fp.BooleanCondition`
