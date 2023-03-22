@@ -754,7 +754,7 @@ $ javadoc -quiet -private -d docs InfiniteList.java
 
 ## Following CS2030S Style Guide
 
-You should make sure that your code follows the [given Java style guide](https://nus-cs2030s.github.io/2021-s2/style.html) and the [give Java documentation guide](https://nus-cs2030s.github.io/2021-s2/javadoc.html).
+You should make sure that your code follows the [given Java style guide](https://nus-cs2030s.github.io/2223-s2/style.html) and the [give Java documentation guide](https://nus-cs2030s.github.io/2223-s2/javadoc.html).
 
 ## Grading
 
