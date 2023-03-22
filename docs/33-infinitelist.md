@@ -164,7 +164,7 @@ class InfiniteList<T> {
 }
 ```
 
-Note that we don't need an `Sentinel` for now.  We will need it if we have operations that truncate the list to a finite one, but let's not worry about it yet.
+Note that we don't need a `Sentinel` for now.  We will need it if we have operations that truncate the list to a finite one, but let's not worry about it yet.
 
 We now change the `generate` method to be lazy, by passing in a producer instead.  We no longer need to pass in the size, since the list can be infinitely long!
 ```Java

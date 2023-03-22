@@ -50,7 +50,7 @@ A `Stream` is lazy, just like `InfiniteList`.
 A terminal operation is an operation on the stream that triggers the evaluation of the stream.  A typical way of writing code that operates on streams is to chain a series of intermediate operations together, ending with a terminal operation.  
 
 The `forEach` method is a terminal operation that takes in a stream and applies a lambda expression to each element.  
-The lambda expression to apply does not return any value.  Java provides the [`Consumer<T>`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Consumer.html) functional interface for this.   Typical use is
+The lambda expression to apply does not return any value.  Java provides the [`Consumer<T>`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html) functional interface for this.   Typical use is
 ```Java
 Stream.of(1, 2, 3).forEach(System.out::println);
 Stream.generate(() -> 1).forEach(System.out::println); // infinite loop
@@ -130,7 +130,7 @@ return result
 
 Note that there are constraints on the identity and accumulation function, which are placed due to the potential parallelization of `reduce`.   We will revisit this operation later.
 
-Java also overloaded `reduce` with two other versions -- a simpler one (with `null` identity) and a more complex one, which supports a different returned type than the type of the elements in the stream.   You can read the [java API](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html#reduce(T,java.util.function.BinaryOperator)) for details.
+Java also overloaded `reduce` with two other versions -- a simpler one (with `null` identity) and a more complex one, which supports a different returned type than the type of the elements in the stream.   You can read the [java API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#reduce(T,java.util.function.BinaryOperator)) for details.
 
 ### Element Matching
 
