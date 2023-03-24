@@ -51,7 +51,7 @@ You are required to implement a single `InfiniteList` class as part of the `cs20
 ```Java
 public class InfiniteList<T> {
   private Lazy<Maybe<T>> head;
-  private Lazy<InfiniteList<T>> value;
+  private Lazy<InfiniteList<T>> tail;
 }
 ```
 
