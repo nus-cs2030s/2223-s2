@@ -19,7 +19,6 @@ Different classes above have different side information that is initialized, sto
 | `Maybe<T>` | The value might be there (i.e., `Some<T>`) or might not be there (i.e., `None`) |
 | `Lazy<T>` | The value has been evaluated or not |
 | `Loggable<T>` | The log describing the operations done on the value |
-| {--`InfiniteList<T>`--} | {--The value is in a sequence (_or the value is non-deterministic, i.e., one of the value in the sequence_)--}<br>{++Our implementation of `InfiniteList<T>` does not contain `flatMap`++} |
 
 These classes that we wrote follow certain patterns that make them well behaved when we create them with `of` and chain them with `flatMap`.  Such classes that are "well behaved" are examples of a programming construct called _monads_.  A monad must follow three laws, to behave well.  Let's examine the laws below.
 
