@@ -15,6 +15,56 @@ class: bottom, titles
 
 ---
 
+name: Announcement
+class: middle, subtitles
+
+# Announcement
+
+---
+
+### Announcement
+
+.lc[
+### PE2
+]
+.rc[
+### PE2
+#### PE2 Information
+- Instructions:
+    - https://canvas.nus.edu.sg/courses/38513/pages/pe2-information
+- Timing and Venue
+    - https://docs.google.com/spreadsheets/d/1IIyOlANs_jkBgUjWrdYaiIs4BQvKp4Z34zzBpz_mmb8/edit#gid=0
+
+#### PE2 Scope
+- Units 1-36, Lab 1-6, Problem Sets 1-8, Lecture 1-10
+- 1 Programming Question, 90 Minutes
+
+#### Practice PE2
+- This week lab session
+]
+
+---
+
+### Announcement
+
+.lc[
+### PE2
+### Well-Being
+]
+.rc[
+### Well-Being Day
+#### Recitation
+- No recitation next week
+
+#### Lab
+- No lab session next week
+- Lab 7 due is __NEXT__ Tuesday
+    - 4 April 2023
+    - Not this Tuesday
+]
+
+---
+
 name: Recap
 class: middle, subtitles
 
@@ -33,7 +83,7 @@ class: middle, subtitles
 ##### Definition
 .content.tight[
 A pure function .mnote[(denoted mathematically as `f : X -> Y`)] is a _mapping_ from the domain `X` to the codomain `Y`.
-For `x` .math[&in;] `X`, there is `y` .math[&in;] `Y` such that `y = f(x)`.
+For each `x` .math[&in;] `X`, there is `y` .math[&in;] `Y` such that `y = f(x)`.
 Additionally, the operation must be _deterministic_, without _side-effects_, and _referentially transparent_.
 ]
 ]
@@ -470,7 +520,7 @@ public <R> Box<R> map(Transformer<? super T, ? extends R> f) {
 public <R> Box<R> flatMap(Transformer<? super T, ? extends Box<? extends R>> f) {
   T val = this.val;                        // 1. Open the box
   Box<? extends R> box = f.transform(val); // 2. Operate with function
-  return compose(this, box);               // 3. Compose the two "context"
+  return A.<T,R>compose(this, box);        // 3. Compose the two "context"
 }
 ```
 ]
@@ -730,7 +780,7 @@ class Pair<T,S> {
     this.second = second;
   }
   
-  public <T,S> Pair<T,S> of(T first, S second) {
+  public static <T,S> Pair<T,S> of(T first, S second) {
     return new Pair<>(first, second);
   }
   
@@ -738,7 +788,7 @@ class Pair<T,S> {
     return this.first;
   }
   
-  public S getSnd() {
+  public S getSecond() {
     return this.second;
   }
   
@@ -753,8 +803,7 @@ class Pair<T,S> {
       return false;
     }
     Pair<?,?> pair = (Pair<?,?>) obj;
-    return this.first.equals(pair.first)
-        && this.second.equals(pair.second)
+    return this.first.equals(pair.first) && this.second.equals(pair.second);
   }
 }
 ```
@@ -786,6 +835,16 @@ Pair<Integer,String> incrWithLog(Pair<Integer,String> p) {
 Pair<Integer,String> absWithLog(Pair<Integer,String> p) {
   return Pair.of(abs(p.getFirst()), p.getSecond() + "; abs " + p.getFirst());
 }
+```
+]
+
+##### Invocation & Composition
+.sssize[
+```jshell[copy=shell]
+jshell> Pair<Integer, String> p = Pair.of(1, "")
+p ==> [1, ]
+jshell> absWithLog(incrWithLog(incrWithLog(p)))
+$10 ==> [3, ; incr 1; incr 2; abs 3]
 ```
 ]
 ]
