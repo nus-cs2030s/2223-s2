@@ -536,8 +536,8 @@ public <R> Box<R> map(Transformer<? super T, ? extends R> f) {
 public <R> Box<R> flatMap(Transformer<? super T, ? extends Box<? extends R>> f) {
   T val = this.val;                        // 1. Open the box
   Box<? extends R> box = f.transform(val); // 2. Operate with function
-  return A.<T,R>compose(this, box);        // 3. Compose the two "context"
-}
+  return Box.<T,R>compose(this, box);      // 3. Compose the two "context"
+}     // Changed to Box to be specific to this class
 ```
 ]
 ]
@@ -600,7 +600,7 @@ Ctx<Integer> incr(Ctx<Integer> ctx) {
 .card.bg-y[
 ##### Notes
 .content.tight[
-- `ctx` is unchanged .mnote[(i.e., immutable)]
+- Variable `ctx` is unchanged .mnote[(i.e., immutable)]
 - `Ctx { val: v`.op0[`..`]`, ctx: c }`<br>
 always produce<br>
 `Ctx { val: v+c, ctx: c }`
@@ -1612,11 +1612,17 @@ To ensure equivalence in behaviour between sequential and parallel reduce:
 - __Compatible `f` & `g`__
 ]
 .col70.nol.deindent[
-- `f(e, x)` must be equal to `x`
+- `g(e, x)`.cite[] must be equal to `x`
 - `f` and `g` must have no side-effect
 - `f(f(x, y), z)` must be equal to `f(x, f(y, z))` .mnote[(also `g`)]
 - [More about compatibility](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#reduce&#40;java.lang.Object,java.util.function.BiFunction,java.util.function.BinaryOperator&#41;)
+.nol.deindent[
+- Using our symbol, `g(x, f(e, y))` must be equal to `f(x, y)`
 ]
+]
+]
+.rc[
+.ref[In the case of `T reduce(T e, BinaryOperator<T> f)`, then `e` must be the identity of `f` .mnote[(i.e., `f(e, x)` must be equal to `x`)].]
 ]
 
 ---
