@@ -1224,7 +1224,7 @@ A __monad__ is a structure with _at least_ two methods `of`.cite[] and `flatMap`
 .rc[
 ### Monad
 #### Left Identity Law
-> Let `f` be a function from `X` &rarr; `Monad<X>`
+> Let `f` be a function from `X` &rarr; `Monad<Y>`
 
 .col50[
 ##### LHS
@@ -1294,8 +1294,8 @@ A __monad__ is a structure with _at least_ two methods `of`.cite[] and `flatMap`
 ]
 .rc[
 ### Monad
-#### Right Identity Law
-> Let `monad` be any arbitrary instance of `Monad`
+#### Associative Law
+> Let `monad` be an instance of `Monad`, let `f` and `g` be a `X` &rarr; `Monad<Y>` function.
 
 .col50[
 ##### LHS
