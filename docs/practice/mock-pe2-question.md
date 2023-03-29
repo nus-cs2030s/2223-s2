@@ -14,7 +14,7 @@
 4. You should see the following in your home directory.
       - The files `Test1.java` and `CS2030STest.java` for testing your solution.
       - The skeleton files for the question: `Main.java`
-      - The following files to solve the question are provided `Circle.java`, `Point.java`, `RandomPoint.java`, and `Pair.java`
+      - The following files to solve the question are provided `Circle.java`, `Point.java`, and `RandomPoint.java`
       - The file `StreamAPI.md` contains information about the `Stream` class from the `java.util.stream` package.
      
 5. Solve the programming tasks by editing `Main.java`. 
