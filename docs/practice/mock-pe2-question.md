@@ -59,6 +59,14 @@ jshell> pointStream(new Point(0, 0), p -> new Point(p.getX() + 1, p.getY() + 1))
 (2.0, 2.0)
 ```
 
+You can test your code by running the `Test1.java` provided.  Make sure your code follows the CS2030S Java style.
+
+```
+$ javac Test1.java
+$ java Test1
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml Main.java
+```
+
 ## Implement the `generateGrid` method.
 
 The method `generateGrid` has two arguments: `point` of type `Point` and `n` which is of type `int`. This method should return a finite stream of type `Stream<Point>` containing the `n * n` points that define a grid starting from the point `point` and then incrementing both `x` and `y` cordinates by one. For example: a grid of size `3` starting from a point `(0,0)` should look like the following:
@@ -98,6 +106,14 @@ jshell> generateGrid(new Point(-1, 0), 2).forEach(System.out::println)
 (0.0, 1.0)
 ```
 
+You can test your code by running the `Test1.java` provided.  Make sure your code follows the CS2030S Java style.
+
+```
+$ javac Test1.java
+$ java Test1
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml Main.java
+```
+
 ## Implement the `concentricCircles` method.
 
 The method `concentricCircles` has two arguments: `circle` of type `Circle` and `f` which is of type `Function<Double,Double>`.  The method should return a `Stream<Circle>` which contains the first circle `circle`, followed by the circle with a radius given by `f(circle.getRadius())`, and then `f(f(circle.getRadius())`, and so on. In this way, we will have a stream of concentric circles (circles with a common center but with different radii - much like a target in archery).
@@ -117,6 +133,14 @@ jshell> concentricCircles(new Circle(new Point(0, 0), 1.0),x -> x + 0.5).limit(3
 { center: (0.0, 0.0), radius: 2.0 }
 ```
 
+You can test your code by running the `Test1.java` provided.  Make sure your code follows the CS2030S Java style.
+
+```
+$ javac Test1.java
+$ java Test1
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml Main.java
+```
+
 ## Implement the `pointStreamFromCircle` method.
 
 The method `pointStreamFromCircle` has one argument: `circles` of type `Stream<Circle>`. The method should return a `Stream<Point>` which contains the centers of all the circles in the `circles` list. Implement this method body using a single stream pipeline.
@@ -129,8 +153,7 @@ jshell> pointStreamFromCircle(Stream.of(new Circle(new Point(0, 0), 1), new Circ
 (-1.0, -1.0)
 ```
 
-
-You can test your code by running the `Test2.java` provided.  Make sure your code follows the CS2030S Java style.
+You can test your code by running the `Test1.java` provided.  Make sure your code follows the CS2030S Java style.
 
 ```
 $ javac Test1.java
