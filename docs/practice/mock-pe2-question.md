@@ -14,7 +14,7 @@
 4. You should see the following in your home directory.
       - The files `Test1.java` and `CS2030STest.java` for testing your solution.
       - The skeleton files for the question: `Main.java`
-      - The following files to solve the question are provided `Circle.java`, `Point.java`, and `RandomPoint.java`
+      - The following files to solve the question are provided `Circle.java`, and `Point.java`
       - The file `StreamAPI.md` contains information about the `Stream` class from the `java.util.stream` package.
      
 5. Solve the programming tasks by editing `Main.java`. 
@@ -32,7 +32,7 @@ There are five parts to this question that may or may not be dependent on each o
 
 The Stream API is included in the file `StreamAPI.md`.
 
-You are provided with a `Point`, `Circle`, `RandomPoint`, and `Main` class. These `Point`, `Circle` and `RandomPoint` classes are similar to those used in Lab 0.  Take a look at them to see what are the methods available.
+You are provided with a `Point`, `Circle`, and `Main` class. These `Point`, and `Circle` classes are similar to those used in Lab 0.  Take a look at them to see what are the methods available.
 
 All of your single line pipelines will be written in the `Main.java` skeleton file. Each method body must contain only a single return statement.
 
