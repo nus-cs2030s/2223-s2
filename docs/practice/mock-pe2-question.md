@@ -12,7 +12,7 @@
 3. There is no submission script
 
 4. You should see the following in your home directory.
-      - The files Test1.java and CS2030STest.java for testing your solution.
+      - The files `Test1.java` and `CS2030STest.java` for testing your solution.
       - The skeleton files for the question: `Main.java`
       - The following files to solve the question are provided `Circle.java`, `Point.java`, `RandomPoint.java`, and `Pair.java`
       - The file `StreamAPI.md` contains information about the `Stream` class from the `java.util.stream` package.
@@ -127,4 +127,13 @@ jshell> pointStreamFromCircle(Stream.of(new Circle(new Point(0, 0), 1), new Circ
 (0.0, 0.0)
 (1.0, 1.0)
 (-1.0, -1.0)
+```
+
+
+You can test your code by running the `Test2.java` provided.  Make sure your code follows the CS2030S Java style.
+
+```
+$ javac Test1.java
+$ java Test1
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml Main.java
 ```
