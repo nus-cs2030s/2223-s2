@@ -28,7 +28,7 @@
 
 ## Your Task
 
-There are five parts to this question that may or may not be dependent on each other. You will need to write five single line `Stream` pipelines to generate certain `Stream`s and solve certain computations. The last part of this question will get you to re-solve the Lab 0 (Pi Estimation) using only a `Stream` and some supporting classes.
+There are four parts to this question that may or may not be dependent on each other. You will need to write four single line `Stream` pipelines to generate certain `Stream`s and solve certain computations. The last part of this question will get you to re-solve the Lab 0 (Pi Estimation) using only a `Stream` and some supporting classes.
 
 The Stream API is included in the file `StreamAPI.md`.
 
