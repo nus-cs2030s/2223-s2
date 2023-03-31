@@ -1695,7 +1695,7 @@ class Timing {
         .filter(x -> isPrime(x))
       //.parallel()
         .count();
-    Instant stop = Instnat.now();
+    Instant stop = Instant.now();
     System.out.println("count: " + count);
     System.out.println("time : " + Duration.between(start, stop).toMillis() + " ms");
   }
