@@ -719,20 +719,20 @@ int foo(int x) {
 .lc[
 ### Dependency
 #### - Task
-#### - Box
+#### - Maybe
 ]
 .rc[
 ### Dependency
-#### Box&lt;T&gt; Dependency
+#### Maybe&lt;T&gt; Dependency
 ##### Code
 .sssize[
 ```java
-Box<Integer> foo(int x) {
-  Box<Integer> a = Box.of(taskA(x));
-  Box<Integer> b = a.flatMap(i -> taskB(i));
-  Box<Integer> c = a.flatMap(i -> taskC(i));
-  Box<Integer> d = a.flatMap(i -> taskD(i));
-  Box<Integer> e = b.combine(c, (i, j) -> taskE(i, j));
+Maybe<Integer> foo(int x) {
+  Maybe<Integer> a = Box.of(taskA(x));
+  Maybe<Integer> b = a.flatMap(i -> taskB(i));
+  Maybe<Integer> c = a.flatMap(i -> taskC(i));
+  Maybe<Integer> d = a.flatMap(i -> taskD(i));
+  Maybe<Integer> e = b.combine(c, (i, j) -> taskE(i, j));
   return e;
 }
 ```
@@ -749,7 +749,7 @@ Box<Integer> foo(int x) {
 .lc[
 ### Dependency
 #### - Task
-#### - Box
+#### - Maybe
 #### - Lazy
 ]
 .rc[
@@ -780,7 +780,7 @@ Lazy<Integer> foo(int x) {
 .lc[
 ### Dependency
 #### - Task
-#### - Box
+#### - Maybe
 #### - Lazy
 #### - Future
 ]
@@ -791,7 +791,7 @@ Lazy<Integer> foo(int x) {
 .sssize[
 ```java
 CompletableFuture<Integer> foo(int x) {
-  CompletableFuture<Integer> a = CompletableFuture.supplyAsync(taskA(x));
+  CompletableFuture<Integer> a = CompletableFuture.completedFuture(taskA(x));
   CompletableFuture<Integer> b = a.thenComposeAsync(i -> taskB(i));
   CompletableFuture<Integer> c = a.thenComposeAsync(i -> taskC(i));
   CompletableFuture<Integer> d = a.thenComposeAsync(i -> taskD(i));
@@ -799,6 +799,18 @@ CompletableFuture<Integer> foo(int x) {
   return e;
 }
 ```
+
+##### Mapping
+.col23[
+- `completedFuture`
+- `thenComposeAsync`
+- `thenCombineAsync`
+]
+.col40.nol.deindent[
+- &rArr; &nbsp;&nbsp;  `of`
+- &rArr; &nbsp;&nbsp;  `flatMap`
+- &rArr; &nbsp;&nbsp;  `combine`
+]
 ]
 ]
 .abs.top3.lt65.wt30.fc[
