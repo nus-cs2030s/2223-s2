@@ -1,6 +1,6 @@
 # Practice PE2 Question: Try
 
-### Adapted from PE2 of 21/22 Semester 2
+### Adapted from PE2 of 20/21 Semester 2
 
 ## Instructions to grab Practice PE Question:
 
