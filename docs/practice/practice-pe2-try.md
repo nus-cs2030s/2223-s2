@@ -14,10 +14,6 @@ You should see the following in your home directory.
    - The skeleton file for this question: `cs2030s/fp/Try.java`.
    - The following files are also provided: `Circle.java` , `Point.java`, `Consumer.java`, `Runnable.java`, `Producer.java`, and `Transformer.java`
 
-Producer.java
-Runnable.java
-Transformer.java
-
 ## Background
 
 In Java, we handle exceptions with `try` and `catch`.  For example,
