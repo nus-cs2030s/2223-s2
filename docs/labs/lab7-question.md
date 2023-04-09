@@ -5,7 +5,6 @@
 - Marks: 24
 - Weightage: 6%
 
-
 ## Prerequisite
 
 - Caught up to Unit 34 of Lecture Notes

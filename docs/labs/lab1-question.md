@@ -2,6 +2,7 @@
 
 - Deadline: 31 January 2023, Tuesday, 23:59 SST
 - Marks: 15
+- Weightage: 3%
 
 ## Prerequisite:
 
