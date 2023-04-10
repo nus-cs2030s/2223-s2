@@ -1,0 +1,1344 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2223-s2/labs/lab3-question.html">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Lab 3: Simulation 3 - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-3-simulation-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 3: Simulation 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-overview.html" class="md-nav__link">
+        0. Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-compiler.html" class="md-nav__link">
+        1. Program and Compiler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type.html" class="md-nav__link">
+        2. Variable and Type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-function.html" class="md-nav__link">
+        3. Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-encapsulation.html" class="md-nav__link">
+        4. Encapsulation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-infohiding.html" class="md-nav__link">
+        5. Information Hiding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tell-dont-ask.html" class="md-nav__link">
+        6. Tell, Don't Ask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-static-field.html" class="md-nav__link">
+        7. Class Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-static-method.html" class="md-nav__link">
+        8. Class Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-composition.html" class="md-nav__link">
+        9. Composition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-heap-stack.html" class="md-nav__link">
+        10. Heap and Stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-inheritance.html" class="md-nav__link">
+        11. Inheritance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-overriding.html" class="md-nav__link">
+        12. Overriding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-overloading.html" class="md-nav__link">
+        13. Overloading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-polymorphism.html" class="md-nav__link">
+        14. Polymorphism
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-dynamic-binding.html" class="md-nav__link">
+        15. Method Invocation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-lsp.html" class="md-nav__link">
+        16. LSP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-abstract.html" class="md-nav__link">
+        17. Abstract Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-interface.html" class="md-nav__link">
+        18. Interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-wrapper.html" class="md-nav__link">
+        19. Wrapper Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-casting.html" class="md-nav__link">
+        20. Casting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-variance.html" class="md-nav__link">
+        21. Variance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-exception.html" class="md-nav__link">
+        22. Exception
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-generics.html" class="md-nav__link">
+        23. Generics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-erasure.html" class="md-nav__link">
+        24. Type Erasure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-unchecked.html" class="md-nav__link">
+        25. Unchecked Warnings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-wildcard.html" class="md-nav__link">
+        26. Wildcards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-inference.html" class="md-nav__link">
+        27. Type Inference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-immutability.html" class="md-nav__link">
+        28. Immutability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-nested-classes.html" class="md-nav__link">
+        29. Nested Classes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-functions.html" class="md-nav__link">
+        30. Side Effect-Free Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-box-maybe.html" class="md-nav__link">
+        31. Box and Maybe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-lazy.html" class="md-nav__link">
+        32. Lazy Evaluation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-infinitelist.html" class="md-nav__link">
+        33. Infinite List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-stream.html" class="md-nav__link">
+        34. Streams in Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-logger.html" class="md-nav__link">
+        35. Loggable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-monad.html" class="md-nav__link">
+        36. Monad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-parallel.html" class="md-nav__link">
+        37. Parallel Streams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-thread.html" class="md-nav__link">
+        38. Threads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-async.html" class="md-nav__link">
+        39. Asynchronous Programming
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-forkjoin.html" class="md-nav__link">
+        40. Fork and Join
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Lab Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lab Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments.html" class="md-nav__link">
+        Programming Environments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github.html" class="md-nav__link">
+        GitHub Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Unix CLI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Unix CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/background.html" class="md-nav__link">
+        Background
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/essentials.html" class="md-nav__link">
+        Essentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/advanced.html" class="md-nav__link">
+        Advanced
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Vim
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Vim
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/philosophy.html" class="md-nav__link">
+        Background
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/setup.html" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/quick-lessons.html" class="md-nav__link">
+        Lessons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/tips.html" class="md-nav__link">
+        Tips
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/plugins.html" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Java Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Java Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style.html" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc.html" class="md-nav__link">
+        JavaDoc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-3-simulation-3">Lab 3: Simulation 3</h1>
+<ul>
+<li>Deadline: 14 February 2023, Tuesday, 23:59 SST</li>
+<li>Marks: 16</li>
+<li>Weightage: 4%</li>
+</ul>
+<h2 id="prerequisite">Prerequisite:</h2>
+<ul>
+<li>Completed Lab 2</li>
+<li>Caught up to Unit 25 of Lecture Notes</li>
+<li>Familiar with CS2030S Java style guide</li>
+</ul>
+<h2 id="goal">Goal</h2>
+<p>This is a continuation of Lab 2.  Lab 3 changes some of the requirements of Lab 2 and adds some new things to the world that we are simulating.  The goal is to demonstrate that, when OO-principles are applied properly, we can adapt our code to changes in the requirements with less effort.</p>
+<p>Lab 3 also involves writing your own generic classes.</p>
+<h2 id="queueing-at-the-counters">Queueing at The Counters</h2>
+<p>The Bank has now decided to streamline its operations and rearrange the layout and make some space for queues at the counters. With that, customers can now wait at individual counters. Customers can also now come to the bank to open a bank account, as well as withdraw or deposit money.</p>
+<p>In this lab, we will modify the simulation to add a counter queue to each counter.  If all the counters are busy when a customer arrives, the customer will join a queue and wait. When a counter becomes available, the customer at the front of the queue will proceed to the counter for service.  Each counter queue has a maximum queue length of <span class="arithmatex">\(L\)</span>.  If every counter queue has reached its maximum capacity of <span class="arithmatex">\(L\)</span>, then an arriving customer has to wait at the entrance queue.</p>
+<p>Just like Lab 2, the entrance queue has a maximum queue length of <span class="arithmatex">\(m\)</span>.  If there are already <span class="arithmatex">\(m\)</span> customers waiting in the entrance queue, an arriving customer will be turned away.</p>
+<p>With the addition of counters, there is a change to the customer behavior in choosing which counter to join:</p>
+<ul>
+<li>
+<p>If more than one counter is available, a customer will go to the counter with the smallest id (just like Lab 2) </p>
+</li>
+<li>
+<p>If none of the counters is available, then the customer will join the counter with the shortest queue.  If there are two counters with the same queue length, we break ties with their id.</p>
+</li>
+</ul>
+<p>Note that, when a counter is done serving a customer, one customer from the entrance queue may join the counter queue of that counter.</p>
+<h2 id="building-on-lab-2">Building on Lab 2</h2>
+<p>You are required to build on top of your Lab 2 submission for this lab.</p>
+<p>Assuming you have <code>lab2-&lt;username&gt;</code> and <code>lab3-&lt;username&gt;</code> under the same directory, and <code>lab3-&lt;username&gt;</code> is your current working directory, you can run
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cp -i ../lab2-&lt;username&gt;/*.java .
+rm -i Lab2.java
+</code></pre></div></td></tr></table></div></p>
+<p>to copy all your Java code over.</p>
+<p>If you are still unfamiliar with Unix commands to navigate the file system and processing files, please review <a href="https://nus-cs2030s.github.io/2223-s2/unix/essentials.html">our Unix guide</a>.</p>
+<p>You are encouraged to consider your tutor's feedback and fix any issues with your design for your Lab 2 submission before you embark on your Lab 3.</p>
+<h2 id="skeleton-for-lab-3">Skeleton for Lab 3</h2>
+<p>We provide five files for Lab 3:</p>
+<ul>
+<li>the main <code>Lab3.java</code> (which is simply <code>Lab2.java</code> renamed)</li>
+<li><code>QueueTest.java</code> to test your <code>Queue&lt;T&gt;</code> class, </li>
+<li><code>ArrayTest.java</code> to test your <code>Array&lt;T&gt;</code> class,</li>
+<li><code>CS2030STest.java</code>, which is the CS2030S test library, and</li>
+<li><code>Array.java</code>, which is the skeleton file for <code>Array&lt;T&gt;</code>.</li>
+</ul>
+<p>Except for <code>Array.java</code>, these files should not be modified for this lab.</p>
+<h2 id="your-tasks">Your Tasks</h2>
+<p>We suggest you solve this lab in the following order.</p>
+<h3 id="1-make-queue-a-generic-class">1. Make <code>Queue</code> a generic class</h3>
+<p>The class <code>Queue</code> given to you in Lab 2 stores its elements as <code>Object</code> references, and therefore is not type-safe.  Now that you have learned about generics, you should update <code>Queue</code> to make it a generic class <code>Queue&lt;T&gt;</code>.</p>
+<p>You are encouraged to test your <code>Queue&lt;T&gt;</code> in <code>jshell</code> yourself.  A sample test sequence can be found under <code>outputs/QueueTest.out</code>.</p>
+<p>The file <code>QueueTest.java</code> helps to test your <code>Queue&lt;T&gt;</code> class (see "Running and Testing" section below).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes QueueTest.java
+java QueueTest
+</code></pre></div></td></tr></table></div>
+<h3 id="2-create-a-generic-arrayt-class">2. Create a generic <code>Array&lt;T&gt;</code> class</h3>
+<p>Let's call the class that encapsulates the counter <code>BankCounter</code> (you may name it differently).  We have been using an array to store the <code>BankCounter</code> objects. In Lab 3, you should replace that with a generic wrapper around an array.  In other words, we want to replace <code>BankCounter[]</code> with <code>Array&lt;BankCounter&gt;</code>.  You may build upon the <code>Array&lt;T&gt;</code> class from the notes -- <a href="https://nus-cs2030s.github.io/2223-s2/25-unchecked.html">Unit 25</a>.</p>
+<p>The <code>Array&lt;T&gt;</code> class you build must support the following:</p>
+<ul>
+<li>
+<p><code>Array&lt;T&gt;</code> takes in only a subtype of <code>Comparable&lt;T&gt;</code> as its type argument.  That is, we want to parameterize <code>Array&lt;T&gt;</code> with only a <code>T</code> that can compare with itself. Note that in implementing <code>Array&lt;T&gt;</code>, you will find another situation where using raw type is necessary.  You may, for this case, use <code>@SuppressWarnings("rawtypes")</code> at <em>the smallest scope possible</em> to suppress the warning about raw types.</p>
+</li>
+<li>
+<p><code>Array&lt;T&gt;</code> must support the <code>min</code> method, with the following descriptor:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    T min()
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ul>
+<p><code>min</code> returns the minimum element (based on the order defined by the <code>compareTo</code> method of the <code>Comparable&lt;T&gt;</code> interface).</p>
+<ul>
+<li><code>Array&lt;T&gt;</code> supports a <code>toString</code> method.  The code has been given to you in <code>Array.java</code>.</li>
+</ul>
+<p>You are encouraged to test your <code>Array&lt;T&gt;</code> in <code>jshell</code> yourself. A sample test sequence can be found under <code>outputs/ArrayTest.out</code>.</p>
+<p>The file <code>ArrayTest.java</code> helps to test your <code>Array&lt;T&gt;</code> class (see "Running and Testing" section below).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes ArrayTest.java
+java ArrayTest
+</code></pre></div></td></tr></table></div>
+<h3 id="3-make-your-bankcounter-comparable-to-itself">3. Make Your <code>BankCounter</code> Comparable to Itself</h3>
+<p>Your class that encapsulates the bank counter must now implement the <code>Comparable&lt;T&gt;</code> interface so that it can compare with itself and it can be used as a type argument for <code>Array&lt;T&gt;</code>.</p>
+<p>You should implement <code>compareTo</code> in such a way that <code>counters.min()</code> returns the counter that a customer should join (unless all the counter queues have reached maximum length).</p>
+<h3 id="4-update-your-simulation">4. Update Your Simulation</h3>
+<p>By incorporating <code>Queue&lt;T&gt;</code>, <code>Array&lt;T&gt;</code>, <code>BankCounter</code>, modify your simulation so that it implements the bank with counter queues as described above.</p>
+<h3 id="5-other-changes-needed">5. Other Changes Needed</h3>
+<p>We also need to make the following changes to the input and output of the program.</p>
+<ol>
+<li>
+<p>There is an additional input parameter, an integer <span class="arithmatex">\(L\)</span>, indicating the maximum allowed length of the counter queue.  This input parameter should be read immediately <em>after</em> reading the number of bank counters and <em>before</em> the maximum allowed length of the entrance queue.</p>
+</li>
+<li>
+<p>Customers now have a new possible task: opening a bank account. The input parameter for each customer arrival, is now therefore an <code>int</code> which is <span class="arithmatex">\(0\)</span> for deposit, <span class="arithmatex">\(1\)</span> for withdrawal, or <span class="arithmatex">\(2\)</span> for opening an account. For example, Customer <code>C2</code> opening an account at bank counter <code>S0</code> would be printed as:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>5.100: C2 OpenAccount begin (by S0)
+7.100: C2 OpenAccount done (by S0)
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Now that we have two types of queues, if a customer joins the entrance queue, the customer along with the queue <em>before</em> joining should be printed as such:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1.400: C3 joined bank queue [ C1 C2 ]
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>The counter queue will be printed whenever we print a counter.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>1.200: C2 joined counter queue (at S0 [ C1 ])
+2.000: C0 Withdrawal done (by S0 [ C1 C2 ])
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h2 id="following-cs2030s-style-guide">Following CS2030S Style Guide</h2>
+<p>Like Lab 2, you should also make sure that your code follows the <a href="https://nus-cs2030s.github.io/2223-s2/style.html">given Java style guide</a></p>
+<h2 id="assumptions">Assumptions</h2>
+<p>We assume that no two events involving two different customers ever occur at the same time (except when a customer departs and another customer begins its service, or when a customer is done and another customer joins the counter queue from the entrance queue).  As per all labs, we assume that the input is correctly formatted.</p>
+<h2 id="compiling-testing-and-debugging">Compiling, Testing, and Debugging</h2>
+<h3 id="compilation">Compilation</h3>
+<p>To compile your code,
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac -Xlint:rawtypes *.java
+</code></pre></div></td></tr></table></div></p>
+<p>To check for style,
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+</code></pre></div></td></tr></table></div></p>
+<h3 id="running-and-testing">Running and Testing</h3>
+<p>You may test your simulation code similarly to how you test your Lab 2.</p>
+<h3 id="test-cases">Test Cases</h3>
+<p>A series of test cases <code>Lab3.x.in</code> and <code>Lab3.x.out</code> are provided.  Test cases for <code>x</code> <span class="arithmatex">\(= 1\)</span> to <span class="arithmatex">\(10\)</span> duplicate the corresponding test cases of Lab 2, with the input format updated to allow additional input of <span class="arithmatex">\(L\)</span> (max counter queue length).   We set <span class="arithmatex">\(L\)</span> to <span class="arithmatex">\(0\)</span> in all these test cases. After your update your simulation to add counter queues, your code should still work for the scenarios in Lab 2 (except for small differences in the input and output format).</p>
+<p>Test Case <span class="arithmatex">\(x = 11\)</span> introduces the new task type (Open Account). Test case <span class="arithmatex">\(x = 12\)</span> to <span class="arithmatex">\(14\)</span> are test cases without an entrance queue (<span class="arithmatex">\(m = 0\)</span>). The rest of the test cases test scenarios with both entrance and counter queues.</p>
+<h2 id="grading">Grading</h2>
+<p>This lab is worth 16 marks and contributes 4% to your final grade.  The marking scheme is as follows:</p>
+<ul>
+<li><code>Queue&lt;T&gt;</code>: 1 mark</li>
+<li><code>Array&lt;T&gt;</code>: 3 marks</li>
+<li>Comparable counters: 1 mark</li>
+<li>Using Queue, Array, counters correctly in simulation: 2 marks</li>
+<li>Style: 2 marks</li>
+<li>Correctness: 3 marks</li>
+<li>OO Design: 4 marks</li>
+</ul>
+<p>Note that the style marks is conditioned on evidence of efforts in solving Lab 3.  Simply resubmitting your Lab 2 solution as Lab 3 does not automatically earn you 2 style marks.</p>
+<p>Code that cannot be compiled will receive 0.</p>
+<h3 id="penalty-for-unnecessary-raw-types-and-abuse-of-suppresswarnings">Penalty for Unnecessary Raw Types and Abuse of @SuppressWarnings</h3>
+<p>We penalize heavily (-1 marks per instance) for each unnecessary use of raw types and for each abuse of <code>@SuppressWarnings</code>.</p>
+<p>For Lab 3, you are allowed at most one instance of raw type in the constructor of <code>Array&lt;T&gt;</code> and one use of <code>@SuppressWarnings("rawtypes")</code> in the smallest scope, immediately above the use of raw type.</p>
+<h2 id="warning">WARNING ❗️</h2>
+<p>We would like to remind you of the following:</p>
+<ul>
+<li>
+<p>Use only <code>submit-labX</code> script to submit your lab.  Failure to do so will lead to a 50% penalty of your lab grade.  </p>
+</li>
+<li>
+<p>The grace period for getting used to the submission system is over.  We will not waive late penalty if students fail to submit properly.  Please check your repo after running <code>submit-labX</code> to ensure that your files have been added correctly. The URL to your repo is given after you run <code>submit-labX</code>.</p>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
